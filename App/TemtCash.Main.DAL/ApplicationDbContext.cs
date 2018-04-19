@@ -8,7 +8,13 @@ namespace TemtCash.Main.DAL
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
-        
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<InfoChannelMessageSeen>()
+                .HasKey(c => new { c.InfoChannelMessageId, c.UserId });
+        }
+
         public DbSet<Company> Companies { get; set; }
         public DbSet<CompanyLicence> CompanyLicences { get; set; }
         public DbSet<Customer> Customers { get; set; }

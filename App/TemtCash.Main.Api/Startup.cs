@@ -52,16 +52,16 @@ namespace TemtCash.Main.Api
                 {
                     var oauthAuthority = Configuration.GetValue<string>("OAuthAuthority");
                     options.Authority = new Uri(oauthAuthority);
-                    options.Audiences.Add("speyscloud-main");
-                    options.ClientId = "speyscloud-main";
-                    options.ClientSecret = "846B62D0-DEF9-4215-A99D-86E6B8DAB342";
+                    options.Audiences.Add("temtcash-main");
+                    options.ClientId = "temtcash-main";
+                    options.ClientSecret = "111112D0-DEF9-4215-A99D-86E6B8DAB342";
                     options.RequireHttpsMetadata = false;
                 });
 
             services.RegisterDependencies();
 
             // Register the Swagger generator, defining one or more Swagger documents
-            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Info { Title = "SpeysCloud.Main", Version = "v1" }));
+            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Info { Title = "TemtCash.Main", Version = "v1" }));
         }
 
         // ReSharper disable once UnusedMember.Global - Executed on application startup
@@ -80,7 +80,7 @@ namespace TemtCash.Main.Api
             app.UseSwagger(); // Enable middleware to serve generated Swagger as a JSON endpoint.
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SpeysCloud.Main V1"));
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TemtCash.Main V1"));
         }
     }
 }
