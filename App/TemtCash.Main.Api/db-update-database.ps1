@@ -1,0 +1,1 @@
+dotnet ef database update -p ..\TemtCash.Main.DAL\TemtCash.Main.DAL.csproj
