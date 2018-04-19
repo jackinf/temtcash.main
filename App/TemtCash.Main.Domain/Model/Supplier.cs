@@ -1,4 +1,6 @@
-﻿namespace TemtCash.Main.Domain.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TemtCash.Main.Domain.Model
 {
     public class Supplier : BaseModel<int>
     {
@@ -7,6 +9,7 @@
 
         public bool IsPerson { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
         // TODO: Maybe SupplierType is better?

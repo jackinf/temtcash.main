@@ -1,15 +1,20 @@
-﻿namespace TemtCash.Main.Domain.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TemtCash.Main.Domain.Model
 {
     public class Product : BaseModel<int>
     {
+        [Required]
         public string Name { get; set; }
 
+        [Required]
         public string Code { get; set; }
 
         public string EanCode { get; set; }
 
         public string Description { get; set; }
 
+        [Required]
         public float Price { get; set; }
 
         public string Vat { get; set; }
@@ -20,6 +25,7 @@
 
         public bool? UseProductVat { get; set; }
 
+        [Required]
         public string Status { get; set; }
 
         public bool? DissallowDiscount { get; set; }

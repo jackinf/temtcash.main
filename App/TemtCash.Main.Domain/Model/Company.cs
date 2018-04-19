@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TemtCash.Main.Domain.Model
 {
@@ -8,6 +9,7 @@ namespace TemtCash.Main.Domain.Model
 
         public int PrimaryUserId { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
         public string RegNo { get; set; }
@@ -30,6 +32,7 @@ namespace TemtCash.Main.Domain.Model
 
         public bool IsActive { get; set; }
 
+        [Required]
         public string Status { get; set; }
 
         public DateTime? LastInfoUpdateDate { get; set; }

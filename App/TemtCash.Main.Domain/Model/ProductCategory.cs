@@ -1,11 +1,16 @@
-﻿namespace TemtCash.Main.Domain.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TemtCash.Main.Domain.Model
 {
     public class ProductCategory : BaseModel<int>
     {
+        [Required]
         public string Name { get; set; }
 
+        [Required]
         public string Vat { get; set; }
         
+        [Required]
         public string Status { get; set; }
 
         //

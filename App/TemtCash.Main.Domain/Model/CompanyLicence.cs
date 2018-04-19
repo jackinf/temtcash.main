@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TemtCash.Main.Domain.Model
 {
@@ -7,6 +8,7 @@ namespace TemtCash.Main.Domain.Model
     /// </summary>
     public class CompanyLicence : BaseModel<int>
     {
+        [Required]
         public string LicenceKey { get; set; }
 
         public DateTime? ValidToDate { get; set; }

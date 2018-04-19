@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TemtCash.Main.Domain.Model
 {
@@ -7,6 +8,7 @@ namespace TemtCash.Main.Domain.Model
         public string Number { get; set; }
 
         // TODO: Rename
+        [Required]
         public DateTime Date { get; set; }
 
         public DateTime? DueDate { get; set; }
@@ -28,6 +30,7 @@ namespace TemtCash.Main.Domain.Model
 
         public int? BonusesUsed { get; set; }
 
+        [Required]
         public string Status { get; set; }
 
         //

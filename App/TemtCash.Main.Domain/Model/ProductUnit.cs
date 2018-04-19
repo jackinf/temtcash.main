@@ -17,6 +17,7 @@ namespace TemtCash.Main.Domain.Model
         // TODO: What is a position?
         public int Position { get; set; }
 
+        [Required]
         public string Status { get; set; }
     }
 }

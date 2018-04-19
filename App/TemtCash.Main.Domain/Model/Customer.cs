@@ -1,9 +1,13 @@
-﻿namespace TemtCash.Main.Domain.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TemtCash.Main.Domain.Model
 {
     public class Customer : BaseModel<int>
     {
+        [Required]
         public string Name { get; set; }
 
+        [Required]
         public bool IsCompany { get; set; }
 
         public string RegCode { get; set; }

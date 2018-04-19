@@ -1,11 +1,16 @@
-﻿namespace TemtCash.Main.Domain.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TemtCash.Main.Domain.Model
 {
     public class InvoiceRow : BaseModel<int>
     {
+        [Required]
         public int Amount { get; set; }
 
+        [Required]
         public float Price { get; set; }
 
+        [Required]
         public int Vat { get; set; }
 
         public int? Discount { get; set; }
@@ -18,6 +23,7 @@
 
         public float? UsedBonusSum { get; set; }
 
+        [Required]
         public string Status { get; set; }
 
         //

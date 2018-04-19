@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TemtCash.Main.Domain.Model
 {
@@ -9,12 +10,14 @@ namespace TemtCash.Main.Domain.Model
     {
         public float DayBeginSum { get; set; }
 
+        [Required]
         public DateTime BeginDate { get; set; }
 
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         public string Comment { get; set; }
 
+        [Required]
         public string Status { get; set; }
 
         //
