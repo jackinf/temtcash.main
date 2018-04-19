@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SpeysCloud.Main.Api.Infrastructure;
-using SpeysCloud.Main.DAL;
 using Swashbuckle.AspNetCore.Swagger;
+using TemtCash.Main.Api.Infrastructure;
+using TemtCash.Main.DAL;
 
-namespace SpeysCloud.Main.Api
+namespace TemtCash.Main.Api
 {
     // ReSharper disable once ClassNeverInstantiated.Global - initialized on startup (magically)
     public class Startup

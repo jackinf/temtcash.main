@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using SpeysCloud.Main.DAL;
+using TemtCash.Main.DAL;
 
-namespace SpeysCloud.Main.Api.Helpers
+namespace TemtCash.Main.Api.Helpers
 {
     public static class AutoMigrationHelper
     {

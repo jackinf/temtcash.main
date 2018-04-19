@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Policy;
 using Microsoft.AspNetCore.Http;
 
-namespace SpeysCloud.Main.IntegrationTests.Utils
+namespace TemtCash.Main.IntegrationTests.Utils
 {
     public class FakePolicyEvaluator : IPolicyEvaluator
     {

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace SpeysCloud.Main.Domain.Enum
+namespace TemtCash.Main.Domain.Enum
 {
     [JsonConverter(typeof(StringEnumConverter))]
     public enum ShipmentStatus

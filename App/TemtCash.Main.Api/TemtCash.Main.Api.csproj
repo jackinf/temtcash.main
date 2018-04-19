@@ -51,8 +51,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SpeysCloud.Main.DAL\SpeysCloud.Main.DAL.csproj" />
-    <ProjectReference Include="..\SpeysCloud.Main.Domain\SpeysCloud.Main.Domain.csproj" />
+    <ProjectReference Include="..\TemtCash.Main.DAL\TemtCash.Main.DAL.csproj" />
+    <ProjectReference Include="..\TemtCash.Main.Domain\TemtCash.Main.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using SpeysCloud.Main.Api.Helpers;
+using TemtCash.Main.Api.Helpers;
 
-namespace SpeysCloud.Main.Api
+namespace TemtCash.Main.Api
 {
     public class Program
     {

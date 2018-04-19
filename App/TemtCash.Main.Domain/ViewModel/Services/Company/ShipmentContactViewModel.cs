@@ -1,4 +1,4 @@
-﻿namespace SpeysCloud.Main.Domain.ViewModel.Services.AddressBook
+﻿namespace TemtCash.Main.Domain.ViewModel.Services.Company
 {
     public class ShipmentContactViewModel
     {

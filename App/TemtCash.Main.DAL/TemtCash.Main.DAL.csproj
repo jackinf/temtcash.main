@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SpeysCloud.Main.Domain\SpeysCloud.Main.Domain.csproj" />
+    <ProjectReference Include="..\TemtCash.Main.Domain\TemtCash.Main.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SpeysCloud.Main.DAL;
+using TemtCash.Main.DAL;
 
-namespace SpeysCloud.Main.IntegrationTests.Utils
+namespace TemtCash.Main.IntegrationTests.Utils
 {
     public class DbContextHelper
     {

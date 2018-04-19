@@ -5,10 +5,9 @@ using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using SpeysCloud.Main.Api;
-using SpeysCloud.Main.DAL;
+using TemtCash.Main.DAL;
 
-namespace SpeysCloud.Main.IntegrationTests.Utils
+namespace TemtCash.Main.IntegrationTests.Utils
 {
     public class ApiServerFixture
     {

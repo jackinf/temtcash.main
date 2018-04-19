@@ -1,7 +1,7 @@
 ﻿using AutoFixture.Dsl;
-using SpeysCloud.Main.DAL.Model;
+using TemtCash.Main.Domain.Model;
 
-namespace SpeysCloud.Main.IntegrationTests.Utils
+namespace TemtCash.Main.IntegrationTests.Utils
 {
     public static class BuilderUtils
     {

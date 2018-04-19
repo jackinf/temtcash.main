@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SpeysCloud.Main.Api;
-using SpeysCloud.Main.DAL;
+using TemtCash.Main.Api;
+using TemtCash.Main.DAL;
 
-namespace SpeysCloud.Main.IntegrationTests.Utils
+namespace TemtCash.Main.IntegrationTests.Utils
 {
     public class TestStartup : Startup
     {

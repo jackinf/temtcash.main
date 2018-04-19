@@ -3,9 +3,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using SpeysCloud.Core.Constant;
 using SpeysCloud.Core.Result;
-using SpeysCloud.Main.DAL.Model;
+using TemtCash.Main.Domain.Model;
 
-namespace SpeysCloud.Main.DAL.Helper
+namespace TemtCash.Main.DAL.Helper
 {
     public static class QueryHelper
     {

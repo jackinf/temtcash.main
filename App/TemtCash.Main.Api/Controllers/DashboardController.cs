@@ -1,12 +1,10 @@
-﻿using System.Threading.Tasks;
-using AspNet.Security.OAuth.Validation;
+﻿using AspNet.Security.OAuth.Validation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SpeysCloud.Main.Domain.Services;
-using SpeysCloud.Main.Domain.ViewModel.Services.Dashboard;
+using TemtCash.Main.Domain.Services;
 
-namespace SpeysCloud.Main.Api.Controllers
+namespace TemtCash.Main.Api.Controllers
 {
     [Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
     [Route("api/dashboard")]
@@ -18,13 +16,5 @@ namespace SpeysCloud.Main.Api.Controllers
         {
             _service = service;
         }
-
-        //[HttpGet("frequent-contacts")]
-        //public async Task<IActionResult> FrequentContacts() 
-        //    => await HandleResultAsync(() => _service.GetFrequentContacts());
-
-        [HttpGet("recent-deliveries")]
-        public async Task<IActionResult> RecentDeliveries([FromQuery] RecentDeliveriesRequestViewModel viewModel) 
-            => await HandleResultAsync(() => _service.GetRecentDeliveries(viewModel));
     }
 }

@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using SpeysCloud.Main.DAL.Repository;
-using SpeysCloud.Main.DAL.UnitOfWork;
-using SpeysCloud.Main.Domain.Repository;
-using SpeysCloud.Main.Domain.Services;
-using SpeysCloud.Main.Services;
+using TemtCash.Main.Api.Services;
+using TemtCash.Main.DAL.Repository;
+using TemtCash.Main.DAL.UnitOfWork;
+using TemtCash.Main.Domain.Repository;
+using TemtCash.Main.Domain.Services;
 
-namespace SpeysCloud.Main.Api.Infrastructure
+namespace TemtCash.Main.Api.Infrastructure
 {
     public static class DependenciesRegistrationService
     {
@@ -14,21 +14,14 @@ namespace SpeysCloud.Main.Api.Infrastructure
             // Repositories
             //
 
-            services.AddScoped<IAddressRepository, AddressRepository>();
-            services.AddScoped<IShipmentRepository, ShipmentRepository>();
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
 
             // Services
             //
 
-            services.AddScoped<IAddressService, AddressService>();
+            services.AddScoped<ICompanyService, CompanyService>();
             services.AddScoped<IDashboardService, DashboardService>();
-            services.AddScoped<IShipmentService, ShipmentService>();
-
-            // Unit of work
-            //
-
-            services.AddScoped<AddressAndShipmentUnitOfWork>();
-
+            
             return services;
         }
     }

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace SpeysCloud.Main.DAL.UnitOfWork
+namespace TemtCash.Main.DAL.UnitOfWork
 {
     public abstract class BaseUnitOfWork : IDisposable
     {

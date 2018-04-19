@@ -3,7 +3,7 @@ using FluentValidation.Results;
 using Newtonsoft.Json;
 using SpeysCloud.Core.Result;
 
-namespace SpeysCloud.Main.IntegrationTests.Utils
+namespace TemtCash.Main.IntegrationTests.Utils
 {
     public class TestServiceResult<T> : ServiceResult<T>
     {

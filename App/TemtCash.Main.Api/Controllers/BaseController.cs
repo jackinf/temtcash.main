@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SpeysCloud.Core.Result;
 
-namespace SpeysCloud.Main.Api.Controllers
+namespace TemtCash.Main.Api.Controllers
 {
     public abstract class BaseController : Controller
     {

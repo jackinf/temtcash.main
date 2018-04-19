@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace SpeysCloud.Main.DAL.Model
+namespace TemtCash.Main.Domain.Model
 {
     public abstract class BaseModel<TKey> where TKey : struct
     {

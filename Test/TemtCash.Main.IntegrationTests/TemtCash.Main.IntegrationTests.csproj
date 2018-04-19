@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\App\SpeysCloud.Main.Api\SpeysCloud.Main.Api.csproj" />
+    <ProjectReference Include="..\..\App\TemtCash.Main.Api\TemtCash.Main.Api.csproj" />
   </ItemGroup>
 
   <ItemGroup>

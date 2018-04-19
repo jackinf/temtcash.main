@@ -1,7 +1,7 @@
-﻿using SpeysCloud.Main.IntegrationTests.Utils;
+﻿using TemtCash.Main.IntegrationTests.Utils;
 using Xunit;
 
-namespace SpeysCloud.Main.IntegrationTests.Features
+namespace TemtCash.Main.IntegrationTests.Features
 {
     ///<summary>
     /// Collection("Database Tests") avoids running tests in parallel. 
@@ -14,9 +14,7 @@ namespace SpeysCloud.Main.IntegrationTests.Features
         {
             ApiServerFixture.Current.DoDatabaseOperation(context =>
             {
-                context.ShipmentDetails.RemoveRange(context.ShipmentDetails);
-                context.Shipments.RemoveRange(context.Shipments);
-                context.Addresses.RemoveRange(context.Addresses);
+                context.Companies.RemoveRange(context.Companies);
                 context.SaveChanges();
             });
         }
