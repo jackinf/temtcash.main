@@ -1,15 +1,18 @@
-﻿namespace TemtCash.Main.Domain.ViewModel.Services.Company
+﻿using System;
+
+namespace TemtCash.Main.Domain.ViewModel.Services.Company
 {
     public class CompaniesResponseViewModel
     {
-        //public int Id { get; set; }
-        //public string Company { get; set; }
-        //public string Country { get; set; }
-        //public string City { get; set; }
-        //public string Street { get; set; }
-        //public string Contact { get; set; }
-        //public DateTime? CreationDate { get; set; }
-
-        //public string CityCountry => $"{City} - {Country}";
+        public int Id { get; set; }
+        public string CompanyName { get; set; }
+        public string ClientCode { get; set; }
+        public string ContactPerson { get; set; }
+        public string ContactPhone { get; set; }
+        public string ContactEmail { get; set; }
+        public string InvoiceFrequency { get; set; }
+        public string InvoiceEmail { get; set; }
+        public DateTime? LastLoginTime { get; set; }
+        public bool IsActive { get; set; }
     }
 }

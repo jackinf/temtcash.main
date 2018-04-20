@@ -29,16 +29,18 @@ namespace TemtCash.Main.Api.Services
             List<CompaniesResponseViewModel> Mapping(List<Company> list)
             {
                 return list?
-                    .Select(address => new CompaniesResponseViewModel
+                    .Select(model => new CompaniesResponseViewModel
                     {
-                        // TODO: implement
-                        //Id = address.Id,
-                        //Country = address.Country,
-                        //City = address.City,
-                        //Company = address.Company,
-                        //Contact = address.ContactName,
-                        //CreationDate = address.CreatedOn,
-                        //Street = address.AddressLine1
+                        Id = model.Id,
+                        CompanyName = model.Name,
+                        ClientCode = model.ClientCode,
+                        ContactPerson = model.ContactPerson,
+                        ContactPhone = model.ContactPhone,
+                        ContactEmail = model.ContactEmail,
+                        InvoiceFrequency = model.InvoiceFrequency,
+                        InvoiceEmail = model.InvoiceEmail,
+                        LastLoginTime = model.LastInfoUpdateDate, // ?
+                        IsActive = model.IsActive
                     })
                     .ToList();
             }
@@ -57,20 +59,16 @@ namespace TemtCash.Main.Api.Services
 
             var viewModel = new CompanyResponseViewModel
             {
-                // TODO: implement
-                //Country = model.Country,
-                //PostalCode = model.PostalCode,
-                //City = model.City,
-                //AddressLine1 = model.AddressLine1,
-                //AddressLine2 = model.AddressLine2,
-                //AddressLine3 = model.AddressLine3,
-                //Company = model.Company,
-                //ContactName = model.ContactName,
-                //ContactPhoneNumber = model.ContactPhoneNumber,
-                //ContactEmail = model.ContactEmail,
-                //KmkRegistrationNumber = model.KmkRegistrationNumber,
-                //TntClientNumber = model.TntClientNumber,
-                //ContactReference = model.ContactReference,
+                CompanyName = model.Name,
+                RegNumber = model.RegNo,
+                ContactPerson = model.ContactPerson,
+                ContactEmail = model.ContactEmail,
+                ContactPhone = model.ContactPhone,
+                BusinessArea = model.BusinessArea,
+                //Address = model.Address, // ?
+                City = model.City,
+                //State = model.State, // ?
+                IsActive = model.IsActive
             };
 
             return ServiceResultFactory.Success(viewModel);
@@ -128,9 +126,18 @@ namespace TemtCash.Main.Api.Services
             return ServiceResultFactory.Success(changes > 0);
         }
 
-        private static void MapViewModelToModel(CompanyCreateOrUpdateRequestViewModel viewModel, Company address)
+        private static void MapViewModelToModel(CompanyCreateOrUpdateRequestViewModel viewModel, Company company)
         {
-            // TODO: implement
+            company.Name = viewModel.CompanyName;
+            company.RegNo = viewModel.RegNumber;
+            company.ContactPerson = viewModel.ContactPerson;
+            company.ContactEmail = viewModel.ContactEmail;
+            company.ContactPhone = viewModel.ContactPhone;
+            company.BusinessArea = viewModel.BusinessArea;
+            //company.Address = viewModel.Address;
+            company.City = viewModel.City;
+            //company.State = viewModel.State;
+            company.IsActive = viewModel.IsActive;
         }
 
     }

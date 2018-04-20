@@ -4,15 +4,16 @@ namespace TemtCash.Main.Domain.ViewModel.Services.Company
 {
     public class CompaniesRequestViewModel : PaginatedSearchBaseOptionsResult
     {
-        public string Keyword { get; set; }
-
         public class OrderFields
         {
-            //public static string Company = nameof(AddressesResponseViewModel.Company).ToUpperInvariant();
-            //public static string CityCountry = nameof(AddressesResponseViewModel.CityCountry).ToUpperInvariant();
-            //public static string Street = nameof(AddressesResponseViewModel.Street).ToUpperInvariant();
-            //public static string Contact = nameof(AddressesResponseViewModel.Contact).ToUpperInvariant();
-            //public static string CreationDate = nameof(AddressesResponseViewModel.CreationDate).ToUpperInvariant();
+            public static string CompanyName = nameof(CompaniesResponseViewModel.CompanyName).ToUpperInvariant();
+            public static string ClientCode = nameof(CompaniesResponseViewModel.ClientCode).ToUpperInvariant();
+            public static string ContactPerson = nameof(CompaniesResponseViewModel.ContactPerson).ToUpperInvariant();
+            public static string ContactPhone = nameof(CompaniesResponseViewModel.ContactPhone).ToUpperInvariant();
+            public static string ContactEmail = nameof(CompaniesResponseViewModel.ContactEmail).ToUpperInvariant();
+            public static string InvoiceFrequency = nameof(CompaniesResponseViewModel.InvoiceFrequency).ToUpperInvariant();
+            public static string InvoiceEmail = nameof(CompaniesResponseViewModel.InvoiceEmail).ToUpperInvariant();
+            public static string LastLoginTime = nameof(CompaniesResponseViewModel.LastLoginTime).ToUpperInvariant();
         }
     }
 }
