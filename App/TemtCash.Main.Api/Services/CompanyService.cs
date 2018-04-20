@@ -31,6 +31,7 @@ namespace TemtCash.Main.Api.Services
                 return list?
                     .Select(address => new CompaniesResponseViewModel
                     {
+                        // TODO: implement
                         //Id = address.Id,
                         //Country = address.Country,
                         //City = address.City,
@@ -56,6 +57,7 @@ namespace TemtCash.Main.Api.Services
 
             var viewModel = new CompanyResponseViewModel
             {
+                // TODO: implement
                 //Country = model.Country,
                 //PostalCode = model.PostalCode,
                 //City = model.City,
