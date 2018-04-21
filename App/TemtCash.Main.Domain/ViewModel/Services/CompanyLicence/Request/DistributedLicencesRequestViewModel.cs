@@ -1,7 +1,7 @@
 ﻿using SpeysCloud.Core.Result;
-using TemtCash.Main.Domain.ViewModel.Services.CompanyLicense.Response;
+using TemtCash.Main.Domain.ViewModel.Services.CompanyLicence.Response;
 
-namespace TemtCash.Main.Domain.ViewModel.Services.CompanyLicense.Request
+namespace TemtCash.Main.Domain.ViewModel.Services.CompanyLicence.Request
 {
     public class DistributedLicencesRequestViewModel : PaginatedSearchBaseOptionsResult
     {

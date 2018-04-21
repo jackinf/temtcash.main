@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TemtCash.Main.Domain.ViewModel.Services.CompanyLicense.Response
+namespace TemtCash.Main.Domain.ViewModel.Services.CompanyLicence.Response
 {
     public class CompanyLicencesResponseViewModel
     {

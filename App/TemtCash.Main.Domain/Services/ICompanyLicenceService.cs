@@ -2,8 +2,7 @@
 using System.Threading.Tasks;
 using SpeysCloud.Core.Result;
 using TemtCash.Main.Domain.ViewModel.Services.CompanyLicence.Request;
-using TemtCash.Main.Domain.ViewModel.Services.CompanyLicense.Request;
-using TemtCash.Main.Domain.ViewModel.Services.CompanyLicense.Response;
+using TemtCash.Main.Domain.ViewModel.Services.CompanyLicence.Response;
 
 namespace TemtCash.Main.Domain.Services
 {

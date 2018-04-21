@@ -8,7 +8,6 @@ using TemtCash.Main.Api.Services.Validator;
 using TemtCash.Main.Domain.Model;
 using TemtCash.Main.Domain.Repository;
 using TemtCash.Main.Domain.Services;
-using TemtCash.Main.Domain.ViewModel.Services.Company;
 using TemtCash.Main.Domain.ViewModel.Services.Company.Requests;
 using TemtCash.Main.Domain.ViewModel.Services.Company.Response;
 
@@ -61,15 +60,16 @@ namespace TemtCash.Main.Api.Services
 
             var viewModel = new CompanyResponseViewModel
             {
+                Id = model.Id,
                 CompanyName = model.Name,
                 RegNumber = model.RegNo,
                 ContactPerson = model.ContactPerson,
                 ContactEmail = model.ContactEmail,
                 ContactPhone = model.ContactPhone,
                 BusinessArea = model.BusinessArea,
-                //Address = model.Address, // ?
+                //Address = model.Address, // TODO
                 City = model.City,
-                //State = model.State, // ?
+                //State = model.State, // TODO
                 IsActive = model.IsActive
             };
 
@@ -136,9 +136,9 @@ namespace TemtCash.Main.Api.Services
             company.ContactEmail = viewModel.ContactEmail;
             company.ContactPhone = viewModel.ContactPhone;
             company.BusinessArea = viewModel.BusinessArea;
-            //company.Address = viewModel.Address;
+            //company.Address = viewModel.Address; // TODO
             company.City = viewModel.City;
-            //company.State = viewModel.State;
+            //company.State = viewModel.State; // TODO
             company.IsActive = viewModel.IsActive;
         }
 

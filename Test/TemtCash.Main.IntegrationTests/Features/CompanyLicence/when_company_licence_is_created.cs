@@ -2,7 +2,7 @@
 using SpeysCloud.Core.Result;
 using TemtCash.Main.Api.Controllers;
 using TemtCash.Main.Domain.ViewModel.Services.Company.Requests;
-using TemtCash.Main.Domain.ViewModel.Services.CompanyLicense.Request;
+using TemtCash.Main.Domain.ViewModel.Services.CompanyLicence.Request;
 using TemtCash.Main.IntegrationTests.Utils;
 using Xunit;
 
