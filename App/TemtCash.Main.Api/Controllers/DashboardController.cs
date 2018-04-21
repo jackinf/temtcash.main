@@ -4,15 +4,15 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TemtCash.Main.Domain.Services;
-using TemtCash.Main.Domain.ViewModel.Services.Dashboard;
 
 namespace TemtCash.Main.Api.Controllers
 {
     [Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
-    [Route("api/dashboard")]
+    [Route(ApiEndpoint)]
     public class DashboardController : BaseController
     {
         private readonly IDashboardService _service;
+        public const string ApiEndpoint = "api/dashboard";
 
         public DashboardController(ILogger<DashboardController> logger, IDashboardService service) : base(logger)
         {

@@ -10,12 +10,13 @@ using TemtCash.Main.Domain.ViewModel.Services.CompanyLicense.Request;
 namespace TemtCash.Main.Api.Controllers
 {
     [Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
-    [Route("api/company-license")]
-    public class CompanyLicenseController : BaseController
+    [Route(ApiEndpoint)]
+    public class CompanyLicenceController : BaseController
     {
         private readonly ICompanyLicenceService _service;
+        public const string ApiEndpoint = "api/company-licence";
 
-        public CompanyLicenseController(ILogger<CompanyLicenseController> logger, ICompanyLicenceService service) : base(logger)
+        public CompanyLicenceController(ILogger<CompanyLicenceController> logger, ICompanyLicenceService service) : base(logger)
         {
             _service = service;
         }

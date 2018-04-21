@@ -2,15 +2,15 @@
 using AutoFixture;
 using SpeysCloud.Core.Result;
 using TemtCash.Main.Api.Controllers;
-using TemtCash.Main.Domain.ViewModel.Services.Company.Response;
+using TemtCash.Main.Domain.ViewModel.Services.CompanyLicense.Response;
 using TemtCash.Main.IntegrationTests.Utils;
 using Xunit;
 
-namespace TemtCash.Main.IntegrationTests.Features.Company
+namespace TemtCash.Main.IntegrationTests.Features.CompanyLicence
 {
     public class when_company_licence_is_deleted : clear_data
     {
-        private const string Endpoint = CompanyController.ApiEndpoint;
+        private const string Endpoint = CompanyLicenceController.ApiEndpoint;
         private int _modelId;
         private readonly ServiceResult<bool> _result;
 
@@ -20,10 +20,10 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
 
             ApiServerFixture.Current.DoDatabaseOperation(context =>
             {
-                var createdModel = fixture.Build<Domain.Model.Company>()
+                var createdModel = fixture.Build<Domain.Model.CompanyLicence>()
                     .WithoutBaseProperties()
                     .Create();
-                context.Companies.Add(createdModel);
+                context.CompanyLicences.Add(createdModel);
                 context.SaveChanges();
 
                 _modelId = createdModel.Id;
@@ -41,13 +41,13 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
             Assert.True(_result.Payload);
             ApiServerFixture.Current.DoDatabaseOperation(context =>
             {
-                var model = context.Companies.Find(_modelId);
+                var model = context.CompanyLicences.Find(_modelId);
                 Assert.NotNull(model.DeletedOn);
             });
 
             using (var client = ApiServerFixture.Current.Server.CreateClient())
             {
-                var result = await client.HttpGet<ServiceResult<CompanyResponseViewModel>>($"{Endpoint}/{_modelId}");
+                var result = await client.HttpGet<ServiceResult<CompanyLicenceResponseViewModel>>($"{Endpoint}/{_modelId}");
                 Assert.Null(result.Payload);
             }
         }

@@ -3,24 +3,25 @@ using AutoFixture;
 using SpeysCloud.Core.Result;
 using TemtCash.Main.Api.Controllers;
 using TemtCash.Main.Domain.ViewModel.Services.Company.Requests;
+using TemtCash.Main.Domain.ViewModel.Services.Customer.Request;
 using TemtCash.Main.IntegrationTests.Utils;
 using Xunit;
 
-namespace TemtCash.Main.IntegrationTests.Features.Company
+namespace TemtCash.Main.IntegrationTests.Features.Customer
 {
-    public class when_company_licence_is_updated : clear_data
+    public class when_customer_is_updated : clear_data
     {
-        private const string Endpoint = CompanyController.ApiEndpoint;
+        private const string Endpoint = CustomerController.ApiEndpoint;
         private int _modelId;
 
-        public when_company_licence_is_updated()
+        public when_customer_is_updated()
         {
             ApiServerFixture.Current.DoDatabaseOperation(context =>
             {
-                var createdModel = new Fixture().Build<Domain.Model.Company>()
+                var createdModel = new Fixture().Build<Domain.Model.Customer>()
                     .WithoutBaseProperties()
                     .Create();;
-                context.Companies.Add(createdModel);
+                context.Customers.Add(createdModel);
                 context.SaveChanges();
 
                 _modelId = createdModel.Id;
@@ -31,7 +32,7 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
         public void with_no_properties__then_properties_should_be_updated()
         {
             // Arrange
-            var updatedModel = new CompanyCreateOrUpdateRequestViewModel();
+            var updatedModel = new CustomerCreateOrUpdateRequestViewModel();
 
             // Act
             TestServiceResult<bool> result;
@@ -57,7 +58,7 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
         public void with_all_properties__then_properties_should_be_updated()
         {
             // Arrange
-            var updatedModel = new Fixture().Create<CompanyCreateOrUpdateRequestViewModel>();
+            var updatedModel = new Fixture().Create<CustomerCreateOrUpdateRequestViewModel>();
 
             // Act
             ServiceResult<bool> result;
@@ -68,7 +69,7 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
             Assert.True(result.Payload);
             ApiServerFixture.Current.DoDatabaseOperation(context =>
             {
-                var model = context.Companies.SingleOrDefault(x => x.Id == _modelId);
+                var model = context.Customers.SingleOrDefault(x => x.Id == _modelId);
                 Assert.NotNull(model);
                 // TODO
                 //Assert.Equal(address.Country, updatedAddress.Country);

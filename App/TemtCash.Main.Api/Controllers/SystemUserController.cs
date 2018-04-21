@@ -9,10 +9,11 @@ using TemtCash.Main.Domain.ViewModel.Services.SystemUser;
 namespace TemtCash.Main.Api.Controllers
 {
     [Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
-    [Route("api/system-user")]
+    [Route(ApiEndpoint)]
     public class SystemUserController : BaseController
     {
         private readonly ISystemUserService _service;
+        public const string ApiEndpoint = "api/system-user";
 
         public SystemUserController(ILogger logger, ISystemUserService service) : base(logger)
         {

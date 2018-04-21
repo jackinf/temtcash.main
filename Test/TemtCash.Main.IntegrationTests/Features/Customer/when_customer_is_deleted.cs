@@ -3,27 +3,28 @@ using AutoFixture;
 using SpeysCloud.Core.Result;
 using TemtCash.Main.Api.Controllers;
 using TemtCash.Main.Domain.ViewModel.Services.Company.Response;
+using TemtCash.Main.Domain.ViewModel.Services.Customer.Response;
 using TemtCash.Main.IntegrationTests.Utils;
 using Xunit;
 
-namespace TemtCash.Main.IntegrationTests.Features.Company
+namespace TemtCash.Main.IntegrationTests.Features.Customer
 {
-    public class when_company_licence_is_deleted : clear_data
+    public class when__customer_licence_is_deleted : clear_data
     {
-        private const string Endpoint = CompanyController.ApiEndpoint;
+        private const string Endpoint = CustomerController.ApiEndpoint;
         private int _modelId;
         private readonly ServiceResult<bool> _result;
 
-        public when_company_licence_is_deleted()
+        public when__customer_licence_is_deleted()
         {
             var fixture = new Fixture();
 
             ApiServerFixture.Current.DoDatabaseOperation(context =>
             {
-                var createdModel = fixture.Build<Domain.Model.Company>()
+                var createdModel = fixture.Build<Domain.Model.Customer>()
                     .WithoutBaseProperties()
                     .Create();
-                context.Companies.Add(createdModel);
+                context.Customers.Add(createdModel);
                 context.SaveChanges();
 
                 _modelId = createdModel.Id;
@@ -47,7 +48,7 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
 
             using (var client = ApiServerFixture.Current.Server.CreateClient())
             {
-                var result = await client.HttpGet<ServiceResult<CompanyResponseViewModel>>($"{Endpoint}/{_modelId}");
+                var result = await client.HttpGet<ServiceResult<CustomerResponseViewModel>>($"{Endpoint}/{_modelId}");
                 Assert.Null(result.Payload);
             }
         }

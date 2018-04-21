@@ -4,16 +4,16 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TemtCash.Main.Domain.Services;
-using TemtCash.Main.Domain.ViewModel.Services.InfoChannelMessage;
 using TemtCash.Main.Domain.ViewModel.Services.InfoChannelMessage.Request;
 
 namespace TemtCash.Main.Api.Controllers
 {
     [Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
-    [Route("api/info-channel-message")]
+    [Route(ApiEndpoint)]
     public class InfoChannelMessageController : BaseController
     {
         private readonly IInfoChannelMessageService _service;
+        public const string ApiEndpoint = "api/info-channel-message";
 
         public InfoChannelMessageController(ILogger logger, IInfoChannelMessageService service) : base(logger)
         {

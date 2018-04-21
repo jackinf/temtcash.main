@@ -2,20 +2,21 @@
 using SpeysCloud.Core.Result;
 using TemtCash.Main.Api.Controllers;
 using TemtCash.Main.Domain.ViewModel.Services.Company.Requests;
+using TemtCash.Main.Domain.ViewModel.Services.InfoChannelMessage.Request;
 using TemtCash.Main.IntegrationTests.Utils;
 using Xunit;
 
-namespace TemtCash.Main.IntegrationTests.Features.Company
+namespace TemtCash.Main.IntegrationTests.Features.InfoChannelMessage
 {
-    public class when_customer_is_created
+    public class when_info_channel_message_is_created
     {
-        private const string Endpoint = CompanyController.ApiEndpoint;
+        private const string Endpoint = InfoChannelMessageController.ApiEndpoint;
 
         [Fact]
         public void with_no_properties__then_validations_errors_occur()
         {
             // Arrange
-            var viewModel = new CompanyCreateOrUpdateRequestViewModel();
+            var viewModel = new InfoChannelMessageCreateOrUpdateRequestViewModel();
 
             // Act
             TestServiceResult<int> result;
@@ -27,7 +28,7 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
             // Assert
             ApiServerFixture.Current.DoDatabaseOperation(context =>
             {
-                var address = context.Companies.Find(result.Payload);
+                var address = context.InfoChannelMessages.Find(result.Payload);
                 Assert.Null(address);
 
                 Assert.False(result.IsSuccessful);
@@ -62,6 +63,7 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
             {
                 var model = context.Companies.Find(result.Payload);
                 Assert.NotNull(model);
+                // TODO
                 //Assert.Equal(address.Country, viewModel.Country);
                 //Assert.Equal(address.PostalCode, viewModel.PostalCode);
                 //Assert.Equal(address.City, viewModel.City);

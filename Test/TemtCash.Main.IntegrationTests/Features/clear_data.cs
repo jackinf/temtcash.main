@@ -15,6 +15,9 @@ namespace TemtCash.Main.IntegrationTests.Features
             ApiServerFixture.Current.DoDatabaseOperation(context =>
             {
                 context.Companies.RemoveRange(context.Companies);
+                context.CompanyLicences.RemoveRange(context.CompanyLicences);
+                context.Customers.RemoveRange(context.Customers);
+                context.InfoChannelMessages.RemoveRange(context.InfoChannelMessages);
                 context.SaveChanges();
             });
         }

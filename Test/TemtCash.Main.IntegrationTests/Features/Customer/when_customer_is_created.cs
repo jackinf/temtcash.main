@@ -2,20 +2,21 @@
 using SpeysCloud.Core.Result;
 using TemtCash.Main.Api.Controllers;
 using TemtCash.Main.Domain.ViewModel.Services.Company.Requests;
+using TemtCash.Main.Domain.ViewModel.Services.Customer.Request;
 using TemtCash.Main.IntegrationTests.Utils;
 using Xunit;
 
-namespace TemtCash.Main.IntegrationTests.Features.Company
+namespace TemtCash.Main.IntegrationTests.Features.Customer
 {
-    public class when_customer_is_created
+    public class when__customer_is_created
     {
-        private const string Endpoint = CompanyController.ApiEndpoint;
+        private const string Endpoint = CustomerController.ApiEndpoint;
 
         [Fact]
         public void with_no_properties__then_validations_errors_occur()
         {
             // Arrange
-            var viewModel = new CompanyCreateOrUpdateRequestViewModel();
+            var viewModel = new CustomerCreateOrUpdateRequestViewModel();
 
             // Act
             TestServiceResult<int> result;
@@ -27,7 +28,7 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
             // Assert
             ApiServerFixture.Current.DoDatabaseOperation(context =>
             {
-                var address = context.Companies.Find(result.Payload);
+                var address = context.Customers.Find(result.Payload);
                 Assert.Null(address);
 
                 Assert.False(result.IsSuccessful);
@@ -48,7 +49,7 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
         public void with_all_properties__then_items_should_be_in_db()
         {
             // Arrange
-            var viewModel = new Fixture().Create<CompanyCreateOrUpdateRequestViewModel>();
+            var viewModel = new Fixture().Create<CustomerCreateOrUpdateRequestViewModel>();
 
             // Act
             ServiceResult<int> result;
@@ -60,8 +61,9 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
             // Assert
             ApiServerFixture.Current.DoDatabaseOperation(context =>
             {
-                var model = context.Companies.Find(result.Payload);
+                var model = context.Customers.Find(result.Payload);
                 Assert.NotNull(model);
+                // TODO
                 //Assert.Equal(address.Country, viewModel.Country);
                 //Assert.Equal(address.PostalCode, viewModel.PostalCode);
                 //Assert.Equal(address.City, viewModel.City);

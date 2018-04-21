@@ -2,14 +2,15 @@
 using SpeysCloud.Core.Result;
 using TemtCash.Main.Api.Controllers;
 using TemtCash.Main.Domain.ViewModel.Services.Company.Requests;
+using TemtCash.Main.Domain.ViewModel.Services.CompanyLicense.Request;
 using TemtCash.Main.IntegrationTests.Utils;
 using Xunit;
 
-namespace TemtCash.Main.IntegrationTests.Features.Company
+namespace TemtCash.Main.IntegrationTests.Features.CompanyLicence
 {
-    public class when_customer_is_created
+    public class when_company_licence_is_created
     {
-        private const string Endpoint = CompanyController.ApiEndpoint;
+        private const string Endpoint = CompanyLicenceController.ApiEndpoint;
 
         [Fact]
         public void with_no_properties__then_validations_errors_occur()
@@ -27,7 +28,7 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
             // Assert
             ApiServerFixture.Current.DoDatabaseOperation(context =>
             {
-                var address = context.Companies.Find(result.Payload);
+                var address = context.CompanyLicences.Find(result.Payload);
                 Assert.Null(address);
 
                 Assert.False(result.IsSuccessful);
@@ -48,7 +49,7 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
         public void with_all_properties__then_items_should_be_in_db()
         {
             // Arrange
-            var viewModel = new Fixture().Create<CompanyCreateOrUpdateRequestViewModel>();
+            var viewModel = new Fixture().Create<CompanyLicenceCreateOrUpdateRequestViewModel>();
 
             // Act
             ServiceResult<int> result;
@@ -60,8 +61,9 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
             // Assert
             ApiServerFixture.Current.DoDatabaseOperation(context =>
             {
-                var model = context.Companies.Find(result.Payload);
+                var model = context.CompanyLicences.Find(result.Payload);
                 Assert.NotNull(model);
+                // TODO
                 //Assert.Equal(address.Country, viewModel.Country);
                 //Assert.Equal(address.PostalCode, viewModel.PostalCode);
                 //Assert.Equal(address.City, viewModel.City);

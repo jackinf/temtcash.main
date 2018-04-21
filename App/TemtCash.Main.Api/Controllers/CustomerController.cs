@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TemtCash.Main.Domain.Services;
-using TemtCash.Main.Domain.ViewModel.Services.Customer;
 using TemtCash.Main.Domain.ViewModel.Services.Customer.Request;
 
 namespace TemtCash.Main.Api.Controllers
@@ -13,10 +12,11 @@ namespace TemtCash.Main.Api.Controllers
     /// Company user
     /// </summary>
     [Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
-    [Route("api/customer")]
+    [Route(ApiEndpoint)]
     public class CustomerController : BaseController
     {
         private readonly ICustomerService _service;
+        public const string ApiEndpoint = "api/customer";
 
         public CustomerController(ILogger logger, ICustomerService service) : base(logger)
         {

@@ -1,19 +1,19 @@
 ﻿using AutoFixture;
 using SpeysCloud.Core.Result;
 using TemtCash.Main.Api.Controllers;
-using TemtCash.Main.Domain.ViewModel.Services.Company.Response;
+using TemtCash.Main.Domain.ViewModel.Services.Customer.Response;
 using TemtCash.Main.IntegrationTests.Utils;
 using Xunit;
 
-namespace TemtCash.Main.IntegrationTests.Features.Company
+namespace TemtCash.Main.IntegrationTests.Features.Customer
 {
-    public class when_customer_is_searched : clear_data
+    public class when__customer_is_searched : clear_data
     {
-        private const string Endpoint = CompanyController.ApiEndpoint;
+        private const string Endpoint = CustomerController.ApiEndpoint;
         private int _lastAddedId;
-        private Domain.Model.Company _lastAdded = null;
+        private Domain.Model.Customer _lastAdded = null;
 
-        public when_customer_is_searched()
+        public when__customer_is_searched()
         {
             var fixture = new Fixture();
 
@@ -21,11 +21,11 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
             {
                 for (int i = 1; i <= 5; i++)
                 {
-                    var createdModel = fixture.Build<Domain.Model.Company>()
+                    var createdModel = fixture.Build<Domain.Model.Customer>()
                         .WithoutBaseProperties()
                         .Create();
                     
-                    context.Companies.Add(createdModel);
+                    context.Customers.Add(createdModel);
                     _lastAdded = createdModel;
                 }
                 
@@ -41,7 +41,7 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
         {
             using (var client = ApiServerFixture.Current.Server.CreateClient())
             {
-                var response = client.HttpGet<ServiceResult<CompanyResponseViewModel>>($"{Endpoint}/{_lastAddedId}").Result;
+                var response = client.HttpGet<ServiceResult<CustomerResponseViewModel>>($"{Endpoint}/{_lastAddedId}").Result;
                 Assert.True(response.IsSuccessful);
                 var result = response.Payload;
                 Assert.NotNull(result);
