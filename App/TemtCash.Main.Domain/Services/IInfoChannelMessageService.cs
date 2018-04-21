@@ -1,6 +1,8 @@
 ﻿using System.Threading.Tasks;
 using SpeysCloud.Core.Result;
 using TemtCash.Main.Domain.ViewModel.Services.InfoChannelMessage;
+using TemtCash.Main.Domain.ViewModel.Services.InfoChannelMessage.Request;
+using TemtCash.Main.Domain.ViewModel.Services.InfoChannelMessage.Response;
 
 namespace TemtCash.Main.Domain.Services
 {

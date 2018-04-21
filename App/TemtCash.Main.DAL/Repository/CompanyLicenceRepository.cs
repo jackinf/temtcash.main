@@ -3,6 +3,7 @@ using SpeysCloud.Core.Result;
 using TemtCash.Main.Domain.Model;
 using TemtCash.Main.Domain.Repository;
 using TemtCash.Main.Domain.ViewModel.Services.CompanyLicense;
+using TemtCash.Main.Domain.ViewModel.Services.CompanyLicense.Request;
 
 namespace TemtCash.Main.DAL.Repository
 {
@@ -12,7 +13,7 @@ namespace TemtCash.Main.DAL.Repository
         {
         }
 
-        public Task<PaginatedListResult<Company>> Search(CompanyLicensesRequestViewModel viewModel)
+        public Task<PaginatedListResult<Company>> Search(CompanyLicencesRequestViewModel viewModel)
         {
             throw new System.NotImplementedException();
         }

@@ -7,6 +7,7 @@ using TemtCash.Main.DAL.Helper;
 using TemtCash.Main.Domain.Model;
 using TemtCash.Main.Domain.Repository;
 using TemtCash.Main.Domain.ViewModel.Services.Company;
+using TemtCash.Main.Domain.ViewModel.Services.Company.Requests;
 
 namespace TemtCash.Main.DAL.Repository
 {

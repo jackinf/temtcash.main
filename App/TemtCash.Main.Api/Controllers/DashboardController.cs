@@ -1,8 +1,10 @@
-﻿using AspNet.Security.OAuth.Validation;
+﻿using System.Threading.Tasks;
+using AspNet.Security.OAuth.Validation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TemtCash.Main.Domain.Services;
+using TemtCash.Main.Domain.ViewModel.Services.Dashboard;
 
 namespace TemtCash.Main.Api.Controllers
 {
@@ -16,5 +18,13 @@ namespace TemtCash.Main.Api.Controllers
         {
             _service = service;
         }
+
+        [HttpGet("info-channel-message")]
+        public async Task<IActionResult> InfoChannelMessages()
+            => await HandleResultAsync(() => _service.InfoChannelMessages());
+
+        [HttpGet("info-channel-message/{id:int}")]
+        public async Task<IActionResult> InfoChannelMessages(int id)
+            => await HandleResultAsync(() => _service.InfoChannelMessage(id));
     }
 }

@@ -5,9 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TemtCash.Main.Domain.Services;
 using TemtCash.Main.Domain.ViewModel.Services.Customer;
+using TemtCash.Main.Domain.ViewModel.Services.Customer.Request;
 
 namespace TemtCash.Main.Api.Controllers
 {
+    /// <summary>
+    /// Company user
+    /// </summary>
     [Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
     [Route("api/customer")]
     public class CustomerController : BaseController

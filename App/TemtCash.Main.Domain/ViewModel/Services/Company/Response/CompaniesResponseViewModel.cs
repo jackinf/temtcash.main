@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TemtCash.Main.Domain.ViewModel.Services.Company
+namespace TemtCash.Main.Domain.ViewModel.Services.Company.Response
 {
     public class CompaniesResponseViewModel
     {

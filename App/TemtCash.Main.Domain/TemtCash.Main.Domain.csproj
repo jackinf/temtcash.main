@@ -8,8 +8,4 @@
     <PackageReference Include="SpeysCloud.Core" Version="0.0.7" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModel\Services\Dashboard\" />
-  </ItemGroup>
-
 </Project>

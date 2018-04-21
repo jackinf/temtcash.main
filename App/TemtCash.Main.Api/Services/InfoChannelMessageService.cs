@@ -2,6 +2,8 @@
 using SpeysCloud.Core.Result;
 using TemtCash.Main.Domain.Services;
 using TemtCash.Main.Domain.ViewModel.Services.InfoChannelMessage;
+using TemtCash.Main.Domain.ViewModel.Services.InfoChannelMessage.Request;
+using TemtCash.Main.Domain.ViewModel.Services.InfoChannelMessage.Response;
 
 namespace TemtCash.Main.Api.Services
 {

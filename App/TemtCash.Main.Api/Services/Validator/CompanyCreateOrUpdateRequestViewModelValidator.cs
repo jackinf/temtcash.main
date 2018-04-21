@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using TemtCash.Main.Domain.ViewModel.Services.Company;
+using TemtCash.Main.Domain.ViewModel.Services.Company.Requests;
 
 namespace TemtCash.Main.Api.Services.Validator
 {

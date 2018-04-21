@@ -9,6 +9,8 @@ using TemtCash.Main.Domain.Model;
 using TemtCash.Main.Domain.Repository;
 using TemtCash.Main.Domain.Services;
 using TemtCash.Main.Domain.ViewModel.Services.Company;
+using TemtCash.Main.Domain.ViewModel.Services.Company.Requests;
+using TemtCash.Main.Domain.ViewModel.Services.Company.Response;
 
 namespace TemtCash.Main.Api.Services
 {

@@ -1,19 +1,25 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using SpeysCloud.Core.Result;
-using TemtCash.Main.Domain.ViewModel.Services.CompanyLicense;
+using TemtCash.Main.Domain.ViewModel.Services.CompanyLicense.Request;
+using TemtCash.Main.Domain.ViewModel.Services.CompanyLicense.Response;
 
 namespace TemtCash.Main.Domain.Services
 {
     public interface ICompanyLicenceService
     {
-        Task<ServiceResult<PaginatedListResult<CompanyLicensesResponseViewModel>>> Search(CompanyLicensesRequestViewModel viewModel);
+        Task<ServiceResult<PaginatedListResult<CompanyLicencesResponseViewModel>>> Search(CompanyLicencesRequestViewModel viewModel);
 
-        Task<ServiceResult<CompanyLicenseResponseViewModel>> GetSingle(int id);
+        Task<ServiceResult<CompanyLicenceResponseViewModel>> GetSingle(int id);
 
-        Task<ServiceResult<int>> Create(CompanyLicenseCreateOrUpdateRequestViewModel viewModel);
+        Task<ServiceResult<int>> Create(CompanyLicenceCreateOrUpdateRequestViewModel viewModel);
 
-        Task<ServiceResult<bool>> Update(int id, CompanyLicenseCreateOrUpdateRequestViewModel viewModel);
+        Task<ServiceResult<bool>> Update(int id, CompanyLicenceCreateOrUpdateRequestViewModel viewModel);
 
         Task<ServiceResult<bool>> Delete(int id);
+
+        Task<ServiceResult<PaginatedListResult<DistributedLicencesResponseViewModel>>> DistributedLicences(CompanyLicencesRequestViewModel viewModel);
+
+        Task<ServiceResult<bool>> UpdateLicences(List<int> licenceIds);
     }
 }

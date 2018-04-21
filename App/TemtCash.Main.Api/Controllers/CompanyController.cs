@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TemtCash.Main.Domain.Services;
 using TemtCash.Main.Domain.ViewModel.Services.Company;
+using TemtCash.Main.Domain.ViewModel.Services.Company.Requests;
 
 namespace TemtCash.Main.Api.Controllers
 {
