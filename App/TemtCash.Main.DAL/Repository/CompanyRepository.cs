@@ -6,7 +6,6 @@ using SpeysCloud.Core.Result;
 using TemtCash.Main.DAL.Helper;
 using TemtCash.Main.Domain.Model;
 using TemtCash.Main.Domain.Repository;
-using TemtCash.Main.Domain.ViewModel.Services.Company;
 using TemtCash.Main.Domain.ViewModel.Services.Company.Requests;
 
 namespace TemtCash.Main.DAL.Repository
@@ -32,7 +31,7 @@ namespace TemtCash.Main.DAL.Repository
             return query;
         }
 
-        protected IOrderedQueryable<Company> SearchSort(IQueryable<Company> query, CompaniesRequestViewModel viewModel)
+        protected IQueryable<Company> SearchSort(IQueryable<Company> query, CompaniesRequestViewModel viewModel)
         {
             string sortName = viewModel.SortName?.ToUpper();
             if (sortName == CompaniesRequestViewModel.OrderFields.CompanyName)
@@ -51,7 +50,9 @@ namespace TemtCash.Main.DAL.Repository
                 query = query.OrderUsingSearchOptions(viewModel, x => x.InvoiceEmail);
             else if (sortName == CompaniesRequestViewModel.OrderFields.LastLoginTime)
                 query = query.OrderUsingSearchOptions(viewModel, x => x.LastInfoUpdateDate);
-            return query.OrderBy(x => x.Id);
+            else
+                query = query.OrderBy(x => x.Id);
+            return query;
         }
     }
 }
