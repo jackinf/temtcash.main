@@ -9,37 +9,37 @@ namespace TemtCash.Main.Api.Services
 {
     public class CompanyLicenceService : ICompanyLicenceService
     {
-        public Task<ServiceResult<PaginatedListResult<CompanyLicencesResponseViewModel>>> Search(CompanyLicencesRequestViewModel viewModel)
+        public async Task<ServiceResult<PaginatedListResult<CompanyLicencesResponseViewModel>>> Search(CompanyLicencesRequestViewModel viewModel)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<ServiceResult<CompanyLicenceResponseViewModel>> GetSingle(int id)
+        public async Task<ServiceResult<CompanyLicenceResponseViewModel>> GetSingle(int id)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<ServiceResult<int>> Create(CompanyLicenceCreateOrUpdateRequestViewModel viewModel)
+        public async Task<ServiceResult<int>> Create(CompanyLicenceCreateOrUpdateRequestViewModel viewModel)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<ServiceResult<bool>> Update(int id, CompanyLicenceCreateOrUpdateRequestViewModel viewModel)
+        public async Task<ServiceResult<bool>> Update(int id, CompanyLicenceCreateOrUpdateRequestViewModel viewModel)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<ServiceResult<bool>> Delete(int id)
+        public async Task<ServiceResult<bool>> Delete(int id)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<ServiceResult<PaginatedListResult<DistributedLicencesResponseViewModel>>> DistributedLicences(CompanyLicencesRequestViewModel viewModel)
+        public async Task<ServiceResult<PaginatedListResult<DistributedLicencesResponseViewModel>>> DistributedLicences(CompanyLicencesRequestViewModel viewModel)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<ServiceResult<bool>> UpdateLicences(List<int> licenceIds)
+        public async Task<ServiceResult<bool>> UpdateLicences(List<int> licenceIds)
         {
             throw new System.NotImplementedException();
         }

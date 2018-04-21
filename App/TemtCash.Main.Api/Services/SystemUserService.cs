@@ -7,7 +7,7 @@ namespace TemtCash.Main.Api.Services
 {
     public class SystemUserService : ISystemUserService
     {
-        public Task<ServiceResult<PaginatedListResult<SystemUsersResponseViewModel>>> Search(SystemUsersRequestViewModel viewModel)
+        public async Task<ServiceResult<PaginatedListResult<SystemUsersResponseViewModel>>> Search(SystemUsersRequestViewModel viewModel)
         {
             throw new System.NotImplementedException();
         }

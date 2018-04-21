@@ -9,27 +9,27 @@ namespace TemtCash.Main.Api.Services
 {
     public class InfoChannelMessageService : IInfoChannelMessageService
     {
-        public Task<ServiceResult<PaginatedListResult<InfoChannelMessagesResponseViewModel>>> Search(InfoChannelMessagesRequestViewModel viewModel)
+        public async Task<ServiceResult<PaginatedListResult<InfoChannelMessagesResponseViewModel>>> Search(InfoChannelMessagesRequestViewModel viewModel)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<ServiceResult<InfoChannelMessageResponseViewModel>> GetSingle(int id)
+        public async Task<ServiceResult<InfoChannelMessageResponseViewModel>> GetSingle(int id)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<ServiceResult<int>> Create(InfoChannelMessageCreateOrUpdateRequestViewModel viewModel)
+        public async Task<ServiceResult<int>> Create(InfoChannelMessageCreateOrUpdateRequestViewModel viewModel)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<ServiceResult<bool>> Update(int id, InfoChannelMessageCreateOrUpdateRequestViewModel viewModel)
+        public async Task<ServiceResult<bool>> Update(int id, InfoChannelMessageCreateOrUpdateRequestViewModel viewModel)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<ServiceResult<bool>> Delete(int id)
+        public async Task<ServiceResult<bool>> Delete(int id)
         {
             throw new System.NotImplementedException();
         }

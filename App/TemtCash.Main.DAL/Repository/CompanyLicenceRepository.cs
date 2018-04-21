@@ -13,7 +13,7 @@ namespace TemtCash.Main.DAL.Repository
         {
         }
 
-        public Task<PaginatedListResult<Company>> Search(CompanyLicencesRequestViewModel viewModel)
+        public async Task<PaginatedListResult<Company>> Search(CompanyLicencesRequestViewModel viewModel)
         {
             throw new System.NotImplementedException();
         }

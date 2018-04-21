@@ -13,7 +13,7 @@ namespace TemtCash.Main.DAL.Repository
         {
         }
 
-        public Task<PaginatedListResult<InfoChannelMessage>> Search(InfoChannelMessagesRequestViewModel viewModel)
+        public async Task<PaginatedListResult<InfoChannelMessage>> Search(InfoChannelMessagesRequestViewModel viewModel)
         {
             throw new System.NotImplementedException();
         }
