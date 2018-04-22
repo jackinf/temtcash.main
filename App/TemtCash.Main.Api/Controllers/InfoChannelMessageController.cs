@@ -16,7 +16,7 @@ namespace TemtCash.Main.Api.Controllers
         private readonly IInfoChannelMessageService _service;
         public const string ApiEndpoint = "api/info-channel-message";
 
-        public InfoChannelMessageController(ILogger logger, IInfoChannelMessageService service) : base(logger)
+        public InfoChannelMessageController(ILogger<InfoChannelMessageController> logger, IInfoChannelMessageService service) : base(logger)
         {
             _service = service;
         }

@@ -10,7 +10,7 @@ namespace TemtCash.Main.Api.Controllers
     {
         public const string ApiEndpoint = "api/info";
 
-        public InfoController(ILogger logger) : base(logger)
+        public InfoController(ILogger<InfoController> logger) : base(logger)
         {
         }
 

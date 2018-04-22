@@ -18,12 +18,13 @@ namespace TemtCash.Main.Api.Infrastructure
             services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<IInfoChannelMessageRepository, InfoChannelMessageRepository>();
+            services.AddScoped<ICompanyLicenceRepository, CompanyLicenceRepository>();
 
             // Services
             //
 
-            services.AddScoped<ICompanyLicenceRepository, CompanyLicenceRepository>();
             services.AddScoped<ICompanyService, CompanyService>();
+            services.AddScoped<ICompanyLicenceService, CompanyLicenceService>();
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IDashboardService, DashboardService>();
             services.AddScoped<IInfoChannelMessageService, InfoChannelMessageService>();

@@ -19,7 +19,7 @@ namespace TemtCash.Main.Api.Controllers
         private readonly ICustomerService _service;
         public const string ApiEndpoint = "api/customer";
 
-        public CustomerController(ILogger logger, ICustomerService service) : base(logger)
+        public CustomerController(ILogger<CustomerController> logger, ICustomerService service) : base(logger)
         {
             _service = service;
         }

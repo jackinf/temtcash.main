@@ -16,7 +16,7 @@ namespace TemtCash.Main.Api.Controllers
         private readonly ISystemUserService _service;
         public const string ApiEndpoint = "api/system-user";
 
-        public SystemUserController(ILogger logger, ISystemUserService service) : base(logger)
+        public SystemUserController(ILogger<InfoController> logger, ISystemUserService service) : base(logger)
         {
             _service = service;
         }
