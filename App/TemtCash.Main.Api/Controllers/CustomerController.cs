@@ -11,7 +11,8 @@ namespace TemtCash.Main.Api.Controllers
     /// <summary>
     /// Company user
     /// </summary>
-    [Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
+    //[Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
+    [AllowAnonymous] // TODO: temporary
     [Route(ApiEndpoint)]
     public class CustomerController : BaseController
     {

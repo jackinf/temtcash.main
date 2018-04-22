@@ -9,7 +9,8 @@ using TemtCash.Main.Domain.ViewModel.Services.CompanyLicence.Request;
 
 namespace TemtCash.Main.Api.Controllers
 {
-    [Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
+    //[Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
+    [AllowAnonymous] // TODO: temporary
     [Route(ApiEndpoint)]
     public class CompanyLicenceController : BaseController
     {
@@ -45,7 +46,7 @@ namespace TemtCash.Main.Api.Controllers
         public async Task<IActionResult> DistributedLicences([FromQuery] CompanyLicencesRequestViewModel viewModel)
             => await HandleResultAsync(() => _service.DistributedLicences(viewModel));
 
-        [HttpGet("update-licences")]
+        [HttpPut("update-licences")]
         public async Task<IActionResult> UpdateLicences([FromBody] List<int> licenceIds)
             => await HandleResultAsync(() => _service.UpdateLicences(licenceIds));
     }

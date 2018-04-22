@@ -8,7 +8,8 @@ using TemtCash.Main.Domain.ViewModel.Services.SystemUser;
 
 namespace TemtCash.Main.Api.Controllers
 {
-    [Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
+    //[Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
+    [AllowAnonymous] // TODO: temporary
     [Route(ApiEndpoint)]
     public class SystemUserController : BaseController
     {
