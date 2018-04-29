@@ -61,14 +61,15 @@ namespace TemtCash.Main.Api.Services
 
         public async Task<ServiceResult<int>> Create(int companyId, CompanyLicenceCreateOrUpdateRequestViewModel viewModel)
         {
-            var validator = new CompanyLicenceCreateOrUpdateRequestViewModelValidator();
-            var validationResult = await validator.ValidateAsync(viewModel);
-            if (!validationResult.IsValid)
-                return ServiceResultFactory.Fail<int>(validationResult);
-
             var model = new CompanyLicence();
             MapViewModelToModel(viewModel, model);
             model.CompanyId = companyId;
+
+            var validator = new CompanyLicenceCreateOrUpdateRequestViewModelValidator();
+            var validationResult = await validator.ValidateAsync(model);
+            if (!validationResult.IsValid)
+                return ServiceResultFactory.Fail<int>(validationResult);
+
             await _repository.AddAsync(model);
             var changes = await _repository.SaveChangesAsync();
             if (changes == 0)
@@ -81,16 +82,17 @@ namespace TemtCash.Main.Api.Services
             if (id <= 0)
                 throw new ArgumentException("Argument should be greater than 0", nameof(viewModel));
 
-            var validator = new CompanyLicenceCreateOrUpdateRequestViewModelValidator();
-            var validationResult = await validator.ValidateAsync(viewModel);
-            if (!validationResult.IsValid)
-                return ServiceResultFactory.Fail<bool>(validationResult);
-
             var model = await _repository.GetSingleByCompanyAsync(companyId, id);
             if (model == null)
                 return ServiceResultFactory.Fail<bool>("Item not found");
 
             MapViewModelToModel(viewModel, model);
+
+            var validator = new CompanyLicenceCreateOrUpdateRequestViewModelValidator();
+            var validationResult = await validator.ValidateAsync(model);
+            if (!validationResult.IsValid)
+                return ServiceResultFactory.Fail<bool>(validationResult);
+
             _repository.Update(model);
             var changes = await _repository.SaveChangesAsync();
             return ServiceResultFactory.Success(changes > 0);
