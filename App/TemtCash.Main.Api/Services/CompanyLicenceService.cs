@@ -44,13 +44,11 @@ namespace TemtCash.Main.Api.Services
             return ServiceResultFactory.Success(paginatedListWithViewModel);
         }
 
-        public async Task<ServiceResult<CompanyLicenceResponseViewModel>> GetSingle(int id)
+        public async Task<ServiceResult<CompanyLicenceResponseViewModel>> GetSingle(int companyId, int id)
         {
-            var model = await _repository.GetSingleAsync(id);
+            var model = await _repository.GetSingleByCompanyAsync(companyId, id);
             if (model == null)
-            {
                 return ServiceResultFactory.Success<CompanyLicenceResponseViewModel>(null);
-            }
 
             var viewModel = new CompanyLicenceResponseViewModel
             {
@@ -61,7 +59,7 @@ namespace TemtCash.Main.Api.Services
             return ServiceResultFactory.Success(viewModel);
         }
 
-        public async Task<ServiceResult<int>> Create(CompanyLicenceCreateOrUpdateRequestViewModel viewModel)
+        public async Task<ServiceResult<int>> Create(int companyId, CompanyLicenceCreateOrUpdateRequestViewModel viewModel)
         {
             var validator = new CompanyLicenceCreateOrUpdateRequestViewModelValidator();
             var validationResult = await validator.ValidateAsync(viewModel);
@@ -70,6 +68,7 @@ namespace TemtCash.Main.Api.Services
 
             var model = new CompanyLicence();
             MapViewModelToModel(viewModel, model);
+            model.CompanyId = companyId;
             await _repository.AddAsync(model);
             var changes = await _repository.SaveChangesAsync();
             if (changes == 0)
@@ -77,7 +76,7 @@ namespace TemtCash.Main.Api.Services
             return ServiceResultFactory.Success(model.Id);
         }
 
-        public async Task<ServiceResult<bool>> Update(int id, CompanyLicenceCreateOrUpdateRequestViewModel viewModel)
+        public async Task<ServiceResult<bool>> Update(int companyId, int id, CompanyLicenceCreateOrUpdateRequestViewModel viewModel)
         {
             if (id <= 0)
                 throw new ArgumentException("Argument should be greater than 0", nameof(viewModel));
@@ -87,19 +86,25 @@ namespace TemtCash.Main.Api.Services
             if (!validationResult.IsValid)
                 return ServiceResultFactory.Fail<bool>(validationResult);
 
-            var model = await _repository.GetSingleAsync(id);
+            var model = await _repository.GetSingleByCompanyAsync(companyId, id);
+            if (model == null)
+                return ServiceResultFactory.Fail<bool>("Item not found");
+
             MapViewModelToModel(viewModel, model);
             _repository.Update(model);
             var changes = await _repository.SaveChangesAsync();
             return ServiceResultFactory.Success(changes > 0);
         }
 
-        public async Task<ServiceResult<bool>> Delete(int id)
+        public async Task<ServiceResult<bool>> Delete(int companyId, int id)
         {
             if (id <= 0)
                 throw new ArgumentException("Argument should be greater than 0", nameof(id));
 
-            var model = await _repository.GetSingleAsync(id);
+            var model = await _repository.GetSingleByCompanyAsync(companyId, id);
+            if (model == null)
+                return ServiceResultFactory.Fail<bool>("Item not found");
+
             _repository.Delete(model);
             var changes = await _repository.SaveChangesAsync();
             return ServiceResultFactory.Success(changes > 0);

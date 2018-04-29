@@ -7,6 +7,7 @@ namespace TemtCash.Main.Domain.Repository
 {
     public interface ICompanyLicenceRepository : ICrudRepository<CompanyLicence>
     {
+        Task<CompanyLicence> GetSingleByCompanyAsync(int companyId, int id);
         Task<PaginatedListResult<CompanyLicence>> Search(CompanyLicencesRequestViewModel viewModel);
     }
 }

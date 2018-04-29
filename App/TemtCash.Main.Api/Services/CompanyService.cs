@@ -69,7 +69,7 @@ namespace TemtCash.Main.Api.Services
                 BusinessArea = model.BusinessArea,
                 //Address = model.Address, // TODO
                 City = model.City,
-                //State = model.State, // TODO
+                State = model.Status, // TODO
                 IsActive = model.IsActive
             };
 
@@ -78,15 +78,16 @@ namespace TemtCash.Main.Api.Services
 
         public async Task<ServiceResult<int>> Create(CompanyCreateOrUpdateRequestViewModel viewModel)
         {
+            var model = new Company();
+            MapViewModelToModel(viewModel, model);
+
             var validator = new CompanyCreateOrUpdateRequestViewModelValidator();
-            var validationResult = await validator.ValidateAsync(viewModel);
+            var validationResult = await validator.ValidateAsync(model);
             if (!validationResult.IsValid)
             {
                 return ServiceResultFactory.Fail<int>(validationResult);
             }
 
-            var model = new Company();
-            MapViewModelToModel(viewModel, model);
             await _repository.AddAsync(model);
             var changes = await _repository.SaveChangesAsync();
             if (changes == 0)
@@ -101,15 +102,16 @@ namespace TemtCash.Main.Api.Services
                 throw new ArgumentException("Argument should be greater than 0", nameof(viewModel));
             }
 
+            var model = await _repository.GetSingleAsync(id);
+            MapViewModelToModel(viewModel, model);
+
             var validator = new CompanyCreateOrUpdateRequestViewModelValidator();
-            var validationResult = await validator.ValidateAsync(viewModel);
+            var validationResult = await validator.ValidateAsync(model);
             if (!validationResult.IsValid)
             {
                 return ServiceResultFactory.Fail<bool>(validationResult);
             }
 
-            var model = await _repository.GetSingleAsync(id);
-            MapViewModelToModel(viewModel, model);
             _repository.Update(model);
             var changes = await _repository.SaveChangesAsync();
             return ServiceResultFactory.Success(changes > 0);
@@ -138,7 +140,7 @@ namespace TemtCash.Main.Api.Services
             company.BusinessArea = viewModel.BusinessArea;
             //company.Address = viewModel.Address; // TODO
             company.City = viewModel.City;
-            //company.State = viewModel.State; // TODO
+            company.Status = viewModel.State; // TODO
             company.IsActive = viewModel.IsActive;
         }
 
