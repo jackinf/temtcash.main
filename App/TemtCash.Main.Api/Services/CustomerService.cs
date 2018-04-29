@@ -34,8 +34,7 @@ namespace TemtCash.Main.Api.Services
                     {
                         Id = model.Id,
                         UsernameOrEmail = model.Email,
-                        FirstName = model.Name, // TODO
-                        //LastName = model. TODO
+                        Name = model.Name,
                         //Role = model.Role TODO
                         CompanysMainUser = model.IsCompany, // TODO? is this correct?
                         //IsActive = model.IsActive // TODO
@@ -48,20 +47,17 @@ namespace TemtCash.Main.Api.Services
             return ServiceResultFactory.Success(paginatedListWithViewModel);
         }
 
-        public async Task<ServiceResult<CustomerResponseViewModel>> GetSingle(int id)
+        public async Task<ServiceResult<CustomerResponseViewModel>> GetSingle(int companyId, int id)
         {
-            var model = await _repository.GetSingleAsync(id);
+            var model = await _repository.GetSingleByCompanyAsync(companyId, id);
             if (model == null)
-            {
                 return ServiceResultFactory.Success<CustomerResponseViewModel>(null);
-            }
 
             var viewModel = new CustomerResponseViewModel
             {
                 Id = model.Id,
                 UsernameOrEmail = model.Email,
-                FirstName = model.Name,
-                //LastName = model.LastName, // TODO
+                Name = model.Name,
                 CompanysMainUser = model.IsCompany,
                 //IsSeller = model.IsSeller, // TODO 
                 //IsActive = model.IsActive, // TODO
@@ -70,15 +66,17 @@ namespace TemtCash.Main.Api.Services
             return ServiceResultFactory.Success(viewModel);
         }
 
-        public async Task<ServiceResult<int>> Create(CustomerCreateOrUpdateRequestViewModel viewModel)
+        public async Task<ServiceResult<int>> Create(int companyId, CustomerCreateOrUpdateRequestViewModel viewModel)
         {
-            var validator = new CustomerCreateOrUpdateRequestViewModelValidator();
-            var validationResult = await validator.ValidateAsync(viewModel);
-            if (!validationResult.IsValid)
-                return ServiceResultFactory.Fail<int>(validationResult);
-
             var model = new Customer();
             MapViewModelToModel(viewModel, model);
+            model.CompanyId = companyId;
+
+            var validator = new CustomerCreateOrUpdateRequestViewModelValidator();
+            var validationResult = await validator.ValidateAsync(model);
+            if (!validationResult.IsValid)
+                return ServiceResultFactory.Fail<int>(validationResult);
+            
             await _repository.AddAsync(model);
             var changes = await _repository.SaveChangesAsync();
             if (changes == 0)
@@ -86,29 +84,35 @@ namespace TemtCash.Main.Api.Services
             return ServiceResultFactory.Success(model.Id);
         }
 
-        public async Task<ServiceResult<bool>> Update(int id, CustomerCreateOrUpdateRequestViewModel viewModel)
+        public async Task<ServiceResult<bool>> Update(int companyId, int id, CustomerCreateOrUpdateRequestViewModel viewModel)
         {
             if (id <= 0)
                 throw new ArgumentException("Argument should be greater than 0", nameof(viewModel));
 
+            var model = await _repository.GetSingleByCompanyAsync(companyId, id);
+            if (model == null)
+                return ServiceResultFactory.Fail<bool>("Item not found");
+            MapViewModelToModel(viewModel, model);
+
             var validator = new CustomerCreateOrUpdateRequestViewModelValidator();
-            var validationResult = await validator.ValidateAsync(viewModel);
+            var validationResult = await validator.ValidateAsync(model);
             if (!validationResult.IsValid)
                 return ServiceResultFactory.Fail<bool>(validationResult);
-
-            var model = await _repository.GetSingleAsync(id);
-            MapViewModelToModel(viewModel, model);
+            
             _repository.Update(model);
             var changes = await _repository.SaveChangesAsync();
             return ServiceResultFactory.Success(changes > 0);
         }
 
-        public async Task<ServiceResult<bool>> Delete(int id)
+        public async Task<ServiceResult<bool>> Delete(int companyId, int id)
         {
             if (id <= 0)
                 throw new ArgumentException("Argument should be greater than 0", nameof(id));
 
-            var model = await _repository.GetSingleAsync(id);
+            var model = await _repository.GetSingleByCompanyAsync(companyId, id);
+            if (model == null)
+                return ServiceResultFactory.Fail<bool>("Item not found");
+
             _repository.Delete(model);
             var changes = await _repository.SaveChangesAsync();
             return ServiceResultFactory.Success(changes > 0);
@@ -117,8 +121,7 @@ namespace TemtCash.Main.Api.Services
         private void MapViewModelToModel(CustomerCreateOrUpdateRequestViewModel viewModel, Customer model)
         {
             model.Email = viewModel.UsernameOrEmail;
-            //model.Name = viewModel.FirstName; // TODO
-            //model.LastName = viewModel.LastName; // TODO
+            model.Name = viewModel.Name;
             model.IsCompany = viewModel.CompanysMainUser;
             //model.IsSeller = viewModel.IsSeller; // TODO
             //model.IsActive = viewModel.IsActive; // TODO

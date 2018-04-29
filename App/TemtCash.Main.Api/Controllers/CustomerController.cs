@@ -28,20 +28,24 @@ namespace TemtCash.Main.Api.Controllers
         public async Task<IActionResult> Search([FromQuery] CustomersRequestViewModel viewModel)
             => await HandleResultAsync(() => _service.Search(viewModel));
 
-        [HttpGet("{id:int}")]
-        public async Task<IActionResult> GetSingle([FromRoute] int id)
-            => await HandleResultAsync(() => _service.GetSingle(id));
+        [HttpGet("company/{id:int}")]
+        public async Task<IActionResult> SearchByCompany([FromRoute] int companyId, [FromQuery] CustomersRequestViewModel viewModel)
+            => await HandleResultAsync(() => _service.Search(viewModel)); // TODO: filter by company id
 
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CustomerCreateOrUpdateRequestViewModel viewModel)
-            => await HandleResultAsync(() => _service.Create(viewModel));
+        [HttpGet("company/{companyId:int}/{id:int}")]
+        public async Task<IActionResult> GetSingle([FromRoute] int companyId, [FromRoute] int id)
+            => await HandleResultAsync(() => _service.GetSingle(companyId, id));
 
-        [HttpPut("{id:int}")]
-        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] CustomerCreateOrUpdateRequestViewModel viewModel)
-            => await HandleResultAsync(() => _service.Update(id, viewModel));
+        [HttpPost("company/{companyId:int}")]
+        public async Task<IActionResult> Create([FromRoute] int companyId, [FromBody] CustomerCreateOrUpdateRequestViewModel viewModel)
+            => await HandleResultAsync(() => _service.Create(companyId, viewModel));
 
-        [HttpDelete("{id:int}")]
-        public async Task<IActionResult> Delete([FromRoute] int id)
-            => await HandleResultAsync(() => _service.Delete(id));
+        [HttpPut("company/{companyId:int}/{id:int}")]
+        public async Task<IActionResult> Update([FromRoute] int companyId, [FromRoute] int id, [FromBody] CustomerCreateOrUpdateRequestViewModel viewModel)
+            => await HandleResultAsync(() => _service.Update(companyId, id, viewModel));
+
+        [HttpDelete("company/{companyId:int}/{id:int}")]
+        public async Task<IActionResult> Delete([FromRoute] int companyId, [FromRoute] int id)
+            => await HandleResultAsync(() => _service.Delete(companyId, id));
     }
 }

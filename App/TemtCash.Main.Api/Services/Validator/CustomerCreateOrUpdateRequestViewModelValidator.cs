@@ -1,10 +1,15 @@
 ﻿using FluentValidation;
-using TemtCash.Main.Domain.ViewModel.Services.Customer.Request;
+using TemtCash.Main.Domain.Model;
 
 namespace TemtCash.Main.Api.Services.Validator
 {
-    public class CustomerCreateOrUpdateRequestViewModelValidator : AbstractValidator<CustomerCreateOrUpdateRequestViewModel>
+    public class CustomerCreateOrUpdateRequestViewModelValidator : AbstractValidator<Customer>
     {
-        
+        public CustomerCreateOrUpdateRequestViewModelValidator()
+        {
+            RuleFor(x => x.Name).NotEmpty();
+            RuleFor(x => x.IsCompany).NotNull();
+            RuleFor(x => x.CompanyId).NotNull();
+        }
     }
 }

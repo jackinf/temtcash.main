@@ -27,7 +27,7 @@ namespace TemtCash.Main.Api.Controllers
             => await HandleResultAsync(() => _service.Search(viewModel));
 
         [HttpGet("company/{id:int}")]
-        public async Task<IActionResult> SearchByCompany(int id, [FromQuery] CompanyLicencesRequestViewModel viewModel)
+        public async Task<IActionResult> SearchByCompany([FromRoute] int id, [FromQuery] CompanyLicencesRequestViewModel viewModel)
             => await HandleResultAsync(() => _service.Search(viewModel)); // TODO filter by id
 
         [HttpGet("company/{companyId:int}/{id:int}")]

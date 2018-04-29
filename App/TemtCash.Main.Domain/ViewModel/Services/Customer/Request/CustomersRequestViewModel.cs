@@ -8,8 +8,7 @@ namespace TemtCash.Main.Domain.ViewModel.Services.Customer.Request
         public class OrderFields
         {
             public static string UsernameOrEmail = nameof(CustomersResponseViewModel.UsernameOrEmail).ToUpperInvariant();
-            public static string FirstName = nameof(CustomersResponseViewModel.FirstName).ToUpperInvariant();
-            public static string LastName = nameof(CustomersResponseViewModel.LastName).ToUpperInvariant();
+            public static string Name = nameof(CustomersResponseViewModel.Name).ToUpperInvariant();
             public static string Role = nameof(CustomersResponseViewModel.Role).ToUpperInvariant();
             public static string CompanysMainUser = nameof(CustomersResponseViewModel.CompanysMainUser).ToUpperInvariant();
             public static string LastLoginTime = nameof(CustomersResponseViewModel.LastLoginTime).ToUpperInvariant();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using SpeysCloud.Core.Extension;
 using SpeysCloud.Core.Result;
 using TemtCash.Main.DAL.Helper;
@@ -15,6 +16,16 @@ namespace TemtCash.Main.DAL.Repository
     {
         public CustomerRepository(ApplicationDbContext context) : base(context)
         {
+        }
+
+        public async Task<Customer> GetSingleByCompanyAsync(int companyId, int id)
+        {
+            if (companyId <= 0)
+                throw new ArgumentException("Argument should be greater than 0", nameof(companyId));
+            if (id <= 0)
+                throw new ArgumentException("Argument should be greater than 0", nameof(id));
+
+            return await BaseQuery().SingleOrDefaultAsync(x => x.Id == id && x.CompanyId == companyId);
         }
 
         public async Task<PaginatedListResult<Customer>> Search(CustomersRequestViewModel viewModel)

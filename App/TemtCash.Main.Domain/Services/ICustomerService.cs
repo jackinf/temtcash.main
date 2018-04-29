@@ -10,12 +10,12 @@ namespace TemtCash.Main.Domain.Services
     {
         Task<ServiceResult<PaginatedListResult<CustomersResponseViewModel>>> Search(CustomersRequestViewModel viewModel);
 
-        Task<ServiceResult<CustomerResponseViewModel>> GetSingle(int id);
+        Task<ServiceResult<CustomerResponseViewModel>> GetSingle(int companyId, int id);
 
-        Task<ServiceResult<int>> Create(CustomerCreateOrUpdateRequestViewModel viewModel);
+        Task<ServiceResult<int>> Create(int companyId, CustomerCreateOrUpdateRequestViewModel viewModel);
 
-        Task<ServiceResult<bool>> Update(int id, CustomerCreateOrUpdateRequestViewModel viewModel);
+        Task<ServiceResult<bool>> Update(int companyId, int id, CustomerCreateOrUpdateRequestViewModel viewModel);
 
-        Task<ServiceResult<bool>> Delete(int id);
+        Task<ServiceResult<bool>> Delete(int companyId, int id);
     }
 }
