@@ -11,8 +11,13 @@ namespace TemtCash.Main.DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<InfoChannelMessageSeen>()
                 .HasKey(c => new { c.InfoChannelMessageId, c.UserId });
+
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+                entityType.Relational().TableName = "Temt_" + entityType.Relational().TableName;
         }
 
         public DbSet<Company> Companies { get; set; }

@@ -49,9 +49,7 @@ namespace TemtCash.Main.Api.Services
         {
             var model = await _repository.GetSingleAsync(id);
             if (model == null)
-            {
                 return ServiceResultFactory.Success<InfoChannelMessageResponseViewModel>(null);
-            }
 
             var viewModel = new InfoChannelMessageResponseViewModel
             {
@@ -66,13 +64,15 @@ namespace TemtCash.Main.Api.Services
 
         public async Task<ServiceResult<int>> Create(InfoChannelMessageCreateOrUpdateRequestViewModel viewModel)
         {
+            var model = new InfoChannelMessage();
+            MapViewModelToModel(viewModel, model);
+            model.Status = "1"; // TODO: What is status for?
+
             var validator = new InfoChannelMessageCreateOrUpdateRequestViewModelValidator();
-            var validationResult = await validator.ValidateAsync(viewModel);
+            var validationResult = await validator.ValidateAsync(model);
             if (!validationResult.IsValid)
                 return ServiceResultFactory.Fail<int>(validationResult);
 
-            var model = new InfoChannelMessage();
-            MapViewModelToModel(viewModel, model);
             await _repository.AddAsync(model);
             var changes = await _repository.SaveChangesAsync();
             if (changes == 0)
@@ -85,13 +85,16 @@ namespace TemtCash.Main.Api.Services
             if (id <= 0)
                 throw new ArgumentException("Argument should be greater than 0", nameof(viewModel));
 
+            var model = await _repository.GetSingleAsync(id);
+            if (model == null)
+                return ServiceResultFactory.Fail<bool>("Item not found");
+            MapViewModelToModel(viewModel, model);
+
             var validator = new InfoChannelMessageCreateOrUpdateRequestViewModelValidator();
-            var validationResult = await validator.ValidateAsync(viewModel);
+            var validationResult = await validator.ValidateAsync(model);
             if (!validationResult.IsValid)
                 return ServiceResultFactory.Fail<bool>(validationResult);
-
-            var model = await _repository.GetSingleAsync(id);
-            MapViewModelToModel(viewModel, model);
+            
             _repository.Update(model);
             var changes = await _repository.SaveChangesAsync();
             return ServiceResultFactory.Success(changes > 0);
@@ -103,6 +106,9 @@ namespace TemtCash.Main.Api.Services
                 throw new ArgumentException("Argument should be greater than 0", nameof(id));
 
             var model = await _repository.GetSingleAsync(id);
+            if (model == null)
+                return ServiceResultFactory.Fail<bool>("Item not found");
+
             _repository.Delete(model);
             var changes = await _repository.SaveChangesAsync();
             return ServiceResultFactory.Success(changes > 0);
