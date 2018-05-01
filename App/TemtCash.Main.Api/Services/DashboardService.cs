@@ -32,6 +32,7 @@ namespace TemtCash.Main.Api.Services
                     {
                         Id = model.Id,
                         Subject = model.Title,
+                        Message = model.Message,
                         Date = model.UpdatedOn ?? model.CreatedOn
                     })
                     .ToList();
@@ -39,19 +40,6 @@ namespace TemtCash.Main.Api.Services
 
             var paginatedListWithViewModel = paginatedListWithModel.Copy(Mapping);
             return ServiceResultFactory.Success(paginatedListWithViewModel);
-        }
-
-        public async Task<ServiceResult<InfoChannelMessageDashboardResponseViewModel>> InfoChannelMessage(int id)
-        {
-            var item = await _infoChannelMessageRepository.GetSingleAsync(id);
-            var viewModel = new InfoChannelMessageDashboardResponseViewModel
-            {
-                Id = item.Id,
-                Subject = item.Title,
-                Message = item.Message,
-                Date = item.UpdatedOn ?? item.CreatedOn
-            };
-            return ServiceResultFactory.Success(viewModel);
         }
     }
 }

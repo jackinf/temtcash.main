@@ -22,9 +22,5 @@ namespace TemtCash.Main.Api.Controllers
         [HttpGet("info-channel-message")]
         public async Task<IActionResult> InfoChannelMessages()
             => await HandleResultAsync(() => _service.InfoChannelMessages());
-
-        [HttpGet("info-channel-message/{id:int}")]
-        public async Task<IActionResult> InfoChannelMessages(int id)
-            => await HandleResultAsync(() => _service.InfoChannelMessage(id));
     }
 }

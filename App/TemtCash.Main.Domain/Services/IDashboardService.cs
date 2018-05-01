@@ -7,7 +7,5 @@ namespace TemtCash.Main.Domain.Services
     public interface IDashboardService
     {
         Task<ServiceResult<PaginatedListResult<InfoChannelMessagesDashboardResponseViewModel>>> InfoChannelMessages();
-
-        Task<ServiceResult<InfoChannelMessageDashboardResponseViewModel>> InfoChannelMessage(int id);
     }
 }

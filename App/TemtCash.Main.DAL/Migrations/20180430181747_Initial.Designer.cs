@@ -11,7 +11,7 @@ using TemtCash.Main.DAL;
 namespace TemtCash.Main.DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180419182259_Initial")]
+    [Migration("20180430181747_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -76,7 +76,7 @@ namespace TemtCash.Main.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Companies");
+                    b.ToTable("Temt_Companies");
                 });
 
             modelBuilder.Entity("TemtCash.Main.Domain.Model.CompanyLicence", b =>
@@ -119,7 +119,7 @@ namespace TemtCash.Main.DAL.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("CompanyLicences");
+                    b.ToTable("Temt_CompanyLicences");
                 });
 
             modelBuilder.Entity("TemtCash.Main.Domain.Model.Customer", b =>
@@ -166,7 +166,7 @@ namespace TemtCash.Main.DAL.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Temt_Customers");
                 });
 
             modelBuilder.Entity("TemtCash.Main.Domain.Model.DayPeriod", b =>
@@ -211,7 +211,7 @@ namespace TemtCash.Main.DAL.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("DayPeriodItems");
+                    b.ToTable("Temt_DayPeriodItems");
                 });
 
             modelBuilder.Entity("TemtCash.Main.Domain.Model.InfoChannelMessage", b =>
@@ -248,7 +248,7 @@ namespace TemtCash.Main.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("InfoChannelMessages");
+                    b.ToTable("Temt_InfoChannelMessages");
                 });
 
             modelBuilder.Entity("TemtCash.Main.Domain.Model.InfoChannelMessageProfile", b =>
@@ -262,7 +262,7 @@ namespace TemtCash.Main.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("InfoChannelMessageProfiles");
+                    b.ToTable("Temt_InfoChannelMessageProfiles");
                 });
 
             modelBuilder.Entity("TemtCash.Main.Domain.Model.InfoChannelMessageSeen", b =>
@@ -273,7 +273,7 @@ namespace TemtCash.Main.DAL.Migrations
 
                     b.HasKey("InfoChannelMessageId", "UserId");
 
-                    b.ToTable("InfoChannelMessagesSeen");
+                    b.ToTable("Temt_InfoChannelMessagesSeen");
                 });
 
             modelBuilder.Entity("TemtCash.Main.Domain.Model.Invoice", b =>
@@ -336,7 +336,7 @@ namespace TemtCash.Main.DAL.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("Invoices");
+                    b.ToTable("Temt_Invoices");
                 });
 
             modelBuilder.Entity("TemtCash.Main.Domain.Model.InvoicePaymentType", b =>
@@ -368,7 +368,7 @@ namespace TemtCash.Main.DAL.Migrations
 
                     b.HasIndex("InvoiceId");
 
-                    b.ToTable("InvoicePaymentTypes");
+                    b.ToTable("Temt_InvoicePaymentTypes");
                 });
 
             modelBuilder.Entity("TemtCash.Main.Domain.Model.InvoiceRow", b =>
@@ -419,7 +419,7 @@ namespace TemtCash.Main.DAL.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("InvoiceRow");
+                    b.ToTable("Temt_InvoiceRow");
                 });
 
             modelBuilder.Entity("TemtCash.Main.Domain.Model.Product", b =>
@@ -480,7 +480,7 @@ namespace TemtCash.Main.DAL.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Temt_Products");
                 });
 
             modelBuilder.Entity("TemtCash.Main.Domain.Model.ProductCategory", b =>
@@ -525,7 +525,7 @@ namespace TemtCash.Main.DAL.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("ProductCategories");
+                    b.ToTable("Temt_ProductCategories");
                 });
 
             modelBuilder.Entity("TemtCash.Main.Domain.Model.ProductUnit", b =>
@@ -563,7 +563,7 @@ namespace TemtCash.Main.DAL.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("ProductUnits");
+                    b.ToTable("Temt_ProductUnits");
                 });
 
             modelBuilder.Entity("TemtCash.Main.Domain.Model.Store", b =>
@@ -599,7 +599,7 @@ namespace TemtCash.Main.DAL.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("Stores");
+                    b.ToTable("Temt_Stores");
                 });
 
             modelBuilder.Entity("TemtCash.Main.Domain.Model.Supplier", b =>
@@ -654,7 +654,7 @@ namespace TemtCash.Main.DAL.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("Suppliers");
+                    b.ToTable("Temt_Suppliers");
                 });
 
             modelBuilder.Entity("TemtCash.Main.Domain.Model.WarehouseItem", b =>
@@ -698,7 +698,7 @@ namespace TemtCash.Main.DAL.Migrations
 
                     b.HasIndex("StoreId");
 
-                    b.ToTable("WarehouseItems");
+                    b.ToTable("Temt_WarehouseItems");
                 });
 
             modelBuilder.Entity("TemtCash.Main.Domain.Model.CompanyLicence", b =>

@@ -10,7 +10,7 @@ namespace TemtCash.Main.DAL.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Companies",
+                name: "Temt_Companies",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -41,11 +41,11 @@ namespace TemtCash.Main.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Companies", x => x.Id);
+                    table.PrimaryKey("PK_Temt_Companies", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "InfoChannelMessageProfiles",
+                name: "Temt_InfoChannelMessageProfiles",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -55,11 +55,11 @@ namespace TemtCash.Main.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InfoChannelMessageProfiles", x => x.Id);
+                    table.PrimaryKey("PK_Temt_InfoChannelMessageProfiles", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "InfoChannelMessages",
+                name: "Temt_InfoChannelMessages",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -79,11 +79,11 @@ namespace TemtCash.Main.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InfoChannelMessages", x => x.Id);
+                    table.PrimaryKey("PK_Temt_InfoChannelMessages", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "InfoChannelMessagesSeen",
+                name: "Temt_InfoChannelMessagesSeen",
                 columns: table => new
                 {
                     InfoChannelMessageId = table.Column<int>(nullable: false),
@@ -91,11 +91,11 @@ namespace TemtCash.Main.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InfoChannelMessagesSeen", x => new { x.InfoChannelMessageId, x.UserId });
+                    table.PrimaryKey("PK_Temt_InfoChannelMessagesSeen", x => new { x.InfoChannelMessageId, x.UserId });
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductUnits",
+                name: "Temt_ProductUnits",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -115,17 +115,17 @@ namespace TemtCash.Main.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductUnits", x => x.Id);
+                    table.PrimaryKey("PK_Temt_ProductUnits", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProductUnits_Companies_CompanyId",
+                        name: "FK_Temt_ProductUnits_Temt_Companies_CompanyId",
                         column: x => x.CompanyId,
-                        principalTable: "Companies",
+                        principalTable: "Temt_Companies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Stores",
+                name: "Temt_Stores",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -144,17 +144,17 @@ namespace TemtCash.Main.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Stores", x => x.Id);
+                    table.PrimaryKey("PK_Temt_Stores", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Stores_Companies_CompanyId",
+                        name: "FK_Temt_Stores_Temt_Companies_CompanyId",
                         column: x => x.CompanyId,
-                        principalTable: "Companies",
+                        principalTable: "Temt_Companies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Suppliers",
+                name: "Temt_Suppliers",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -183,17 +183,17 @@ namespace TemtCash.Main.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Suppliers", x => x.Id);
+                    table.PrimaryKey("PK_Temt_Suppliers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Suppliers_Companies_CompanyId",
+                        name: "FK_Temt_Suppliers_Temt_Companies_CompanyId",
                         column: x => x.CompanyId,
-                        principalTable: "Companies",
+                        principalTable: "Temt_Companies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "CompanyLicences",
+                name: "Temt_CompanyLicences",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -215,23 +215,23 @@ namespace TemtCash.Main.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CompanyLicences", x => x.Id);
+                    table.PrimaryKey("PK_Temt_CompanyLicences", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CompanyLicences_Companies_CompanyId",
+                        name: "FK_Temt_CompanyLicences_Temt_Companies_CompanyId",
                         column: x => x.CompanyId,
-                        principalTable: "Companies",
+                        principalTable: "Temt_Companies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CompanyLicences_Stores_StoreId",
+                        name: "FK_Temt_CompanyLicences_Temt_Stores_StoreId",
                         column: x => x.StoreId,
-                        principalTable: "Stores",
+                        principalTable: "Temt_Stores",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Customers",
+                name: "Temt_Customers",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -255,23 +255,23 @@ namespace TemtCash.Main.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Customers", x => x.Id);
+                    table.PrimaryKey("PK_Temt_Customers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Customers_Companies_CompanyId",
+                        name: "FK_Temt_Customers_Temt_Companies_CompanyId",
                         column: x => x.CompanyId,
-                        principalTable: "Companies",
+                        principalTable: "Temt_Companies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Customers_Stores_StoreId",
+                        name: "FK_Temt_Customers_Temt_Stores_StoreId",
                         column: x => x.StoreId,
-                        principalTable: "Stores",
+                        principalTable: "Temt_Stores",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "DayPeriodItems",
+                name: "Temt_DayPeriodItems",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -294,23 +294,23 @@ namespace TemtCash.Main.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DayPeriodItems", x => x.Id);
+                    table.PrimaryKey("PK_Temt_DayPeriodItems", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_DayPeriodItems_Companies_CompanyId",
+                        name: "FK_Temt_DayPeriodItems_Temt_Companies_CompanyId",
                         column: x => x.CompanyId,
-                        principalTable: "Companies",
+                        principalTable: "Temt_Companies",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DayPeriodItems_Stores_StoreId",
+                        name: "FK_Temt_DayPeriodItems_Temt_Stores_StoreId",
                         column: x => x.StoreId,
-                        principalTable: "Stores",
+                        principalTable: "Temt_Stores",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductCategories",
+                name: "Temt_ProductCategories",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -331,29 +331,29 @@ namespace TemtCash.Main.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductCategories", x => x.Id);
+                    table.PrimaryKey("PK_Temt_ProductCategories", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProductCategories_Companies_CompanyId",
+                        name: "FK_Temt_ProductCategories_Temt_Companies_CompanyId",
                         column: x => x.CompanyId,
-                        principalTable: "Companies",
+                        principalTable: "Temt_Companies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProductCategories_ProductCategories_ParentId",
+                        name: "FK_Temt_ProductCategories_Temt_ProductCategories_ParentId",
                         column: x => x.ParentId,
-                        principalTable: "ProductCategories",
+                        principalTable: "Temt_ProductCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ProductCategories_Stores_StoreId",
+                        name: "FK_Temt_ProductCategories_Temt_Stores_StoreId",
                         column: x => x.StoreId,
-                        principalTable: "Stores",
+                        principalTable: "Temt_Stores",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Invoices",
+                name: "Temt_Invoices",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -384,29 +384,29 @@ namespace TemtCash.Main.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Invoices", x => x.Id);
+                    table.PrimaryKey("PK_Temt_Invoices", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Invoices_Companies_CompanyId",
+                        name: "FK_Temt_Invoices_Temt_Companies_CompanyId",
                         column: x => x.CompanyId,
-                        principalTable: "Companies",
+                        principalTable: "Temt_Companies",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Invoices_Customers_CustomerId",
+                        name: "FK_Temt_Invoices_Temt_Customers_CustomerId",
                         column: x => x.CustomerId,
-                        principalTable: "Customers",
+                        principalTable: "Temt_Customers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Invoices_Stores_StoreId",
+                        name: "FK_Temt_Invoices_Temt_Stores_StoreId",
                         column: x => x.StoreId,
-                        principalTable: "Stores",
+                        principalTable: "Temt_Stores",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Products",
+                name: "Temt_Products",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -435,29 +435,29 @@ namespace TemtCash.Main.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Products", x => x.Id);
+                    table.PrimaryKey("PK_Temt_Products", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Products_Companies_CompanyId",
+                        name: "FK_Temt_Products_Temt_Companies_CompanyId",
                         column: x => x.CompanyId,
-                        principalTable: "Companies",
+                        principalTable: "Temt_Companies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Products_ProductCategories_ProductCategoryId",
+                        name: "FK_Temt_Products_Temt_ProductCategories_ProductCategoryId",
                         column: x => x.ProductCategoryId,
-                        principalTable: "ProductCategories",
+                        principalTable: "Temt_ProductCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Products_Stores_StoreId",
+                        name: "FK_Temt_Products_Temt_Stores_StoreId",
                         column: x => x.StoreId,
-                        principalTable: "Stores",
+                        principalTable: "Temt_Stores",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "InvoicePaymentTypes",
+                name: "Temt_InvoicePaymentTypes",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -475,17 +475,17 @@ namespace TemtCash.Main.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InvoicePaymentTypes", x => x.Id);
+                    table.PrimaryKey("PK_Temt_InvoicePaymentTypes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_InvoicePaymentTypes_Invoices_InvoiceId",
+                        name: "FK_Temt_InvoicePaymentTypes_Temt_Invoices_InvoiceId",
                         column: x => x.InvoiceId,
-                        principalTable: "Invoices",
+                        principalTable: "Temt_Invoices",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "InvoiceRow",
+                name: "Temt_InvoiceRow",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -511,23 +511,23 @@ namespace TemtCash.Main.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InvoiceRow", x => x.Id);
+                    table.PrimaryKey("PK_Temt_InvoiceRow", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_InvoiceRow_Invoices_InvoiceId",
+                        name: "FK_Temt_InvoiceRow_Temt_Invoices_InvoiceId",
                         column: x => x.InvoiceId,
-                        principalTable: "Invoices",
+                        principalTable: "Temt_Invoices",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_InvoiceRow_Products_ProductId",
+                        name: "FK_Temt_InvoiceRow_Temt_Products_ProductId",
                         column: x => x.ProductId,
-                        principalTable: "Products",
+                        principalTable: "Temt_Products",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
-                name: "WarehouseItems",
+                name: "Temt_WarehouseItems",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -549,197 +549,197 @@ namespace TemtCash.Main.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_WarehouseItems", x => x.Id);
+                    table.PrimaryKey("PK_Temt_WarehouseItems", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_WarehouseItems_Companies_CompanyId",
+                        name: "FK_Temt_WarehouseItems_Temt_Companies_CompanyId",
                         column: x => x.CompanyId,
-                        principalTable: "Companies",
+                        principalTable: "Temt_Companies",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_WarehouseItems_Products_ProductId",
+                        name: "FK_Temt_WarehouseItems_Temt_Products_ProductId",
                         column: x => x.ProductId,
-                        principalTable: "Products",
+                        principalTable: "Temt_Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_WarehouseItems_Stores_StoreId",
+                        name: "FK_Temt_WarehouseItems_Temt_Stores_StoreId",
                         column: x => x.StoreId,
-                        principalTable: "Stores",
+                        principalTable: "Temt_Stores",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CompanyLicences_CompanyId",
-                table: "CompanyLicences",
+                name: "IX_Temt_CompanyLicences_CompanyId",
+                table: "Temt_CompanyLicences",
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CompanyLicences_StoreId",
-                table: "CompanyLicences",
+                name: "IX_Temt_CompanyLicences_StoreId",
+                table: "Temt_CompanyLicences",
                 column: "StoreId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Customers_CompanyId",
-                table: "Customers",
+                name: "IX_Temt_Customers_CompanyId",
+                table: "Temt_Customers",
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Customers_StoreId",
-                table: "Customers",
+                name: "IX_Temt_Customers_StoreId",
+                table: "Temt_Customers",
                 column: "StoreId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DayPeriodItems_CompanyId",
-                table: "DayPeriodItems",
+                name: "IX_Temt_DayPeriodItems_CompanyId",
+                table: "Temt_DayPeriodItems",
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DayPeriodItems_StoreId",
-                table: "DayPeriodItems",
+                name: "IX_Temt_DayPeriodItems_StoreId",
+                table: "Temt_DayPeriodItems",
                 column: "StoreId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InvoicePaymentTypes_InvoiceId",
-                table: "InvoicePaymentTypes",
+                name: "IX_Temt_InvoicePaymentTypes_InvoiceId",
+                table: "Temt_InvoicePaymentTypes",
                 column: "InvoiceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InvoiceRow_InvoiceId",
-                table: "InvoiceRow",
+                name: "IX_Temt_InvoiceRow_InvoiceId",
+                table: "Temt_InvoiceRow",
                 column: "InvoiceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InvoiceRow_ProductId",
-                table: "InvoiceRow",
+                name: "IX_Temt_InvoiceRow_ProductId",
+                table: "Temt_InvoiceRow",
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Invoices_CompanyId",
-                table: "Invoices",
+                name: "IX_Temt_Invoices_CompanyId",
+                table: "Temt_Invoices",
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Invoices_CustomerId",
-                table: "Invoices",
+                name: "IX_Temt_Invoices_CustomerId",
+                table: "Temt_Invoices",
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Invoices_StoreId",
-                table: "Invoices",
+                name: "IX_Temt_Invoices_StoreId",
+                table: "Temt_Invoices",
                 column: "StoreId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductCategories_CompanyId",
-                table: "ProductCategories",
+                name: "IX_Temt_ProductCategories_CompanyId",
+                table: "Temt_ProductCategories",
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductCategories_ParentId",
-                table: "ProductCategories",
+                name: "IX_Temt_ProductCategories_ParentId",
+                table: "Temt_ProductCategories",
                 column: "ParentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductCategories_StoreId",
-                table: "ProductCategories",
+                name: "IX_Temt_ProductCategories_StoreId",
+                table: "Temt_ProductCategories",
                 column: "StoreId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_CompanyId",
-                table: "Products",
+                name: "IX_Temt_Products_CompanyId",
+                table: "Temt_Products",
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_ProductCategoryId",
-                table: "Products",
+                name: "IX_Temt_Products_ProductCategoryId",
+                table: "Temt_Products",
                 column: "ProductCategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_StoreId",
-                table: "Products",
+                name: "IX_Temt_Products_StoreId",
+                table: "Temt_Products",
                 column: "StoreId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductUnits_CompanyId",
-                table: "ProductUnits",
+                name: "IX_Temt_ProductUnits_CompanyId",
+                table: "Temt_ProductUnits",
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Stores_CompanyId",
-                table: "Stores",
+                name: "IX_Temt_Stores_CompanyId",
+                table: "Temt_Stores",
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Suppliers_CompanyId",
-                table: "Suppliers",
+                name: "IX_Temt_Suppliers_CompanyId",
+                table: "Temt_Suppliers",
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_WarehouseItems_CompanyId",
-                table: "WarehouseItems",
+                name: "IX_Temt_WarehouseItems_CompanyId",
+                table: "Temt_WarehouseItems",
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_WarehouseItems_ProductId",
-                table: "WarehouseItems",
+                name: "IX_Temt_WarehouseItems_ProductId",
+                table: "Temt_WarehouseItems",
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_WarehouseItems_StoreId",
-                table: "WarehouseItems",
+                name: "IX_Temt_WarehouseItems_StoreId",
+                table: "Temt_WarehouseItems",
                 column: "StoreId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CompanyLicences");
+                name: "Temt_CompanyLicences");
 
             migrationBuilder.DropTable(
-                name: "DayPeriodItems");
+                name: "Temt_DayPeriodItems");
 
             migrationBuilder.DropTable(
-                name: "InfoChannelMessageProfiles");
+                name: "Temt_InfoChannelMessageProfiles");
 
             migrationBuilder.DropTable(
-                name: "InfoChannelMessages");
+                name: "Temt_InfoChannelMessages");
 
             migrationBuilder.DropTable(
-                name: "InfoChannelMessagesSeen");
+                name: "Temt_InfoChannelMessagesSeen");
 
             migrationBuilder.DropTable(
-                name: "InvoicePaymentTypes");
+                name: "Temt_InvoicePaymentTypes");
 
             migrationBuilder.DropTable(
-                name: "InvoiceRow");
+                name: "Temt_InvoiceRow");
 
             migrationBuilder.DropTable(
-                name: "ProductUnits");
+                name: "Temt_ProductUnits");
 
             migrationBuilder.DropTable(
-                name: "Suppliers");
+                name: "Temt_Suppliers");
 
             migrationBuilder.DropTable(
-                name: "WarehouseItems");
+                name: "Temt_WarehouseItems");
 
             migrationBuilder.DropTable(
-                name: "Invoices");
+                name: "Temt_Invoices");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Temt_Products");
 
             migrationBuilder.DropTable(
-                name: "Customers");
+                name: "Temt_Customers");
 
             migrationBuilder.DropTable(
-                name: "ProductCategories");
+                name: "Temt_ProductCategories");
 
             migrationBuilder.DropTable(
-                name: "Stores");
+                name: "Temt_Stores");
 
             migrationBuilder.DropTable(
-                name: "Companies");
+                name: "Temt_Companies");
         }
     }
 }
