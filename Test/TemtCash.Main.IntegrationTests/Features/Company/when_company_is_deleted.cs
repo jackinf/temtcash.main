@@ -2,6 +2,7 @@
 using AutoFixture;
 using SpeysCloud.Core.Result;
 using TemtCash.Main.Api.Controllers;
+using TemtCash.Main.Api.Controllers.ForAdmin;
 using TemtCash.Main.Domain.ViewModel.Services.Company.Response;
 using TemtCash.Main.IntegrationTests.Utils;
 using Xunit;

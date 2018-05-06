@@ -7,6 +7,5 @@ namespace TemtCash.Main.Domain.Services
     public interface ISystemUserService
     {
         Task<ServiceResult<PaginatedListResult<SystemUsersResponseViewModel>>> Search(SystemUsersRequestViewModel viewModel);
-
     }
 }

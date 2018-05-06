@@ -6,10 +6,9 @@ using Microsoft.Extensions.Logging;
 using TemtCash.Main.Domain.Services;
 using TemtCash.Main.Domain.ViewModel.Services.SystemUser;
 
-namespace TemtCash.Main.Api.Controllers
+namespace TemtCash.Main.Api.Controllers.ForAdmin
 {
-    //[Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
-    [AllowAnonymous] // TODO: temporary
+    [Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
     [Route(ApiEndpoint)]
     public class SystemUserController : BaseController
     {

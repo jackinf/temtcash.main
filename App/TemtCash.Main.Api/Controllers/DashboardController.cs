@@ -9,7 +9,7 @@ namespace TemtCash.Main.Api.Controllers
 {
     [Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
     [Route(ApiEndpoint)]
-    public class DashboardController : BaseController
+    public partial class DashboardController : BaseController
     {
         private readonly IDashboardService _service;
         public const string ApiEndpoint = "api/dashboard";

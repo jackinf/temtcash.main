@@ -1,12 +1,11 @@
 ﻿using System.Threading.Tasks;
-using AspNet.Security.OAuth.Validation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TemtCash.Main.Domain.Services;
 using TemtCash.Main.Domain.ViewModel.Services.Customer.Request;
 
-namespace TemtCash.Main.Api.Controllers
+namespace TemtCash.Main.Api.Controllers.ForAdmin
 {
     /// <summary>
     /// Company user

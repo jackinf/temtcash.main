@@ -6,6 +6,7 @@ using SpeysCloud.Core.Result;
 using TemtCash.Main.Domain.Model;
 using TemtCash.Main.Domain.Repository;
 using TemtCash.Main.Domain.Services;
+using TemtCash.Main.Domain.ViewModel.Services.Dashboard.Request;
 using TemtCash.Main.Domain.ViewModel.Services.Dashboard.Response;
 using TemtCash.Main.Domain.ViewModel.Services.InfoChannelMessage.Request;
 
@@ -40,6 +41,16 @@ namespace TemtCash.Main.Api.Services
 
             var paginatedListWithViewModel = paginatedListWithModel.Copy(Mapping);
             return ServiceResultFactory.Success(paginatedListWithViewModel);
+        }
+
+        public async Task<ServiceResult<CompanyInformationResponseViewModel>> GetCompanyInformation()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public async Task<ServiceResult<bool>> UpdateCompanyInformation(UpdateCompanyInformationRequestViewModel viewModel)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

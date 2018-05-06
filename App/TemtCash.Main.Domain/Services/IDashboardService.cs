@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using SpeysCloud.Core.Result;
+using TemtCash.Main.Domain.ViewModel.Services.Dashboard.Request;
 using TemtCash.Main.Domain.ViewModel.Services.Dashboard.Response;
 
 namespace TemtCash.Main.Domain.Services
@@ -7,5 +8,7 @@ namespace TemtCash.Main.Domain.Services
     public interface IDashboardService
     {
         Task<ServiceResult<PaginatedListResult<InfoChannelMessagesDashboardResponseViewModel>>> InfoChannelMessages();
+        Task<ServiceResult<CompanyInformationResponseViewModel>> GetCompanyInformation();
+        Task<ServiceResult<bool>> UpdateCompanyInformation(UpdateCompanyInformationRequestViewModel viewModel);
     }
 }

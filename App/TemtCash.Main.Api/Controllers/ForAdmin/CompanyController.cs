@@ -1,16 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using AspNet.Security.OAuth.Validation;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SpeysCloud.Core.Factory;
-using SpeysCloud.Core.Result;
 using TemtCash.Main.Domain.Services;
 using TemtCash.Main.Domain.ViewModel.Services.Company.Requests;
-using TemtCash.Main.Domain.ViewModel.Services.Company.Response;
 
-namespace TemtCash.Main.Api.Controllers
+namespace TemtCash.Main.Api.Controllers.ForAdmin
 {
     //[Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
     [AllowAnonymous] // TODO: temporary
