@@ -1,11 +1,16 @@
 ﻿using System.Threading.Tasks;
+using AspNet.Security.OAuth.Validation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SpeysCloud.Core.Constant;
 using TemtCash.Main.Domain.Services;
 using TemtCash.Main.Domain.ViewModel.Services.Report.Request;
 
 namespace TemtCash.Main.Api.Controllers.ForUser
 {
+    [Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme, Roles = UserRoleName.User + "," + UserRoleName.Administrator)]
+    [Route(ApiEndpoint)]
     public class ReportsController : BaseController
     {
         private readonly IReportService _service;

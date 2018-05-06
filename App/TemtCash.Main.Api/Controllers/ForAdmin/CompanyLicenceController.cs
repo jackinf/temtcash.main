@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using AspNet.Security.OAuth.Validation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SpeysCloud.Core.Constant;
 using TemtCash.Main.Domain.Services;
 using TemtCash.Main.Domain.ViewModel.Services.CompanyLicence.Request;
 
 namespace TemtCash.Main.Api.Controllers.ForAdmin
 {
-    //[Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme)]
-    [AllowAnonymous] // TODO: temporary
+    [Authorize(AuthenticationSchemes = OAuthValidationDefaults.AuthenticationScheme, Roles = UserRoleName.Administrator)]
     [Route(ApiEndpoint)]
     public class CompanyLicenceController : BaseController
     {
