@@ -1,6 +1,8 @@
-﻿namespace TemtCash.Main.Domain.ViewModel.Services.Report.Request
+﻿using SpeysCloud.Core.Result;
+
+namespace TemtCash.Main.Domain.ViewModel.Services.Report.Request
 {
-    public class TurnoverCategoriesRequestViewModel
+    public class TurnoverCategoriesRequestViewModel : SearchBaseOptionsViewModel
     {
         
     }
