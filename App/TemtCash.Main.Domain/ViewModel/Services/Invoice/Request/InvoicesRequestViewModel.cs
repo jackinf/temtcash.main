@@ -1,6 +1,8 @@
-﻿namespace TemtCash.Main.Domain.ViewModel.Services.Invoice.Request
+﻿using SpeysCloud.Core.Result;
+
+namespace TemtCash.Main.Domain.ViewModel.Services.Invoice.Request
 {
-    public class InvoicesRequestViewModel
+    public class InvoicesRequestViewModel : SearchBaseOptionsViewModel
     {
         
     }

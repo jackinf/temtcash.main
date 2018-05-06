@@ -13,7 +13,6 @@ namespace TemtCash.Main.Api.Infrastructure
             // Repositories
             //
 
-            services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<ICompanyLicenceRepository, CompanyLicenceRepository>();
             services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
@@ -26,7 +25,6 @@ namespace TemtCash.Main.Api.Infrastructure
             // Services
             //
 
-            services.AddScoped<IClientService, ClientService>();
             services.AddScoped<ICompanyLicenceService, CompanyLicenceService>();
             services.AddScoped<ICompanyService, CompanyService>();
             services.AddScoped<ICustomerService, CustomerService>();

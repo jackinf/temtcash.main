@@ -47,6 +47,38 @@ namespace TemtCash.Main.Api.Services
             return ServiceResultFactory.Success(paginatedListWithViewModel);
         }
 
+        /// <summary>
+        /// Those are temtcash customer's clients
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <param name="viewModel"></param>
+        /// <returns></returns>
+        public async Task<ServiceResult<PaginatedListResult<CustomersResponseViewModel>>> Search(int customerId, CustomersRequestViewModel viewModel)
+        {
+            throw new NotImplementedException();
+            var paginatedListWithModel = await _repository.Search(viewModel);
+
+            // Mapping
+            List<CustomersResponseViewModel> Mapping(List<Customer> list)
+            {
+                return list?
+                    .Select(model => new CustomersResponseViewModel
+                    {
+                        Id = model.Id,
+                        UsernameOrEmail = model.Email,
+                        Name = model.Name,
+                        //Role = model.Role TODO
+                        CompanysMainUser = model.IsCompany, // TODO? is this correct?
+                        //IsActive = model.IsActive // TODO
+                        //LastLoginTime = model.LastLoginTime // TODO
+                    })
+                    .ToList();
+            }
+
+            var paginatedListWithViewModel = paginatedListWithModel.Copy(Mapping);
+            return ServiceResultFactory.Success(paginatedListWithViewModel);
+        }
+
         public async Task<ServiceResult<CustomerResponseViewModel>> GetSingle(int companyId, int id)
         {
             var model = await _repository.GetSingleByCompanyAsync(companyId, id);

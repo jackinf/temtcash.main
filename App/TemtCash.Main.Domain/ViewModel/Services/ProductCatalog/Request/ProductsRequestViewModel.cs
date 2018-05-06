@@ -1,6 +1,8 @@
-﻿namespace TemtCash.Main.Domain.ViewModel.Services.ProductCatalog.Request
+﻿using SpeysCloud.Core.Result;
+
+namespace TemtCash.Main.Domain.ViewModel.Services.ProductCatalog.Request
 {
-    public class ProductsRequestViewModel
+    public class ProductsRequestViewModel : SearchBaseOptionsViewModel
     {
         
     }

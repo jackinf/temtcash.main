@@ -98,9 +98,7 @@ namespace TemtCash.Main.Api.Services
         public async Task<ServiceResult<bool>> Update(int id, CompanyCreateOrUpdateRequestViewModel viewModel)
         {
             if (id <= 0)
-            {
-                throw new ArgumentException("Argument should be greater than 0", nameof(viewModel));
-            }
+                throw new ArgumentException("Argument should be greater than 0", nameof(id));
 
             var model = await _repository.GetSingleAsync(id);
             MapViewModelToModel(viewModel, model);
@@ -120,9 +118,7 @@ namespace TemtCash.Main.Api.Services
         public async Task<ServiceResult<bool>> Delete(int id)
         {
             if (id <= 0)
-            {
                 throw new ArgumentException("Argument should be greater than 0", nameof(id));
-            }
 
             var model = await _repository.GetSingleAsync(id);
             _repository.Delete(model);

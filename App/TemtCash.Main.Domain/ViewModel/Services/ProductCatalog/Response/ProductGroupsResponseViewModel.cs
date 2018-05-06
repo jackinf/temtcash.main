@@ -2,6 +2,8 @@
 {
     public class ProductGroupsResponseViewModel
     {
-        
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public float? KmPercent { get; set; }
     }
 }
