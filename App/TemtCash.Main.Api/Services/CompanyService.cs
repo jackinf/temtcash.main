@@ -126,6 +126,16 @@ namespace TemtCash.Main.Api.Services
             return ServiceResultFactory.Success(changes > 0);
         }
 
+        public Task<ServiceResult<MyCompanyInfoResponseViewModel>> GetMyCompanyInfo()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ServiceResult<bool>> UpdateMyCompanyInfo(MyCompanyInfoUpdateRequestViewModel viewModel)
+        {
+            throw new NotImplementedException();
+        }
+
         private static void MapViewModelToModel(CompanyCreateOrUpdateRequestViewModel viewModel, Company company)
         {
             company.Name = viewModel.CompanyName;

@@ -21,6 +21,9 @@ namespace TemtCash.Main.Api.Infrastructure
             services.AddScoped<IProductCatalogRepository, ProductCatalogRepository>();
             services.AddScoped<IReportRepository, ReportRepository>();
             services.AddScoped<ISupplierRepository, SupplierRepository>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IPointOfSaleRepository, PointOfSaleRepository>();
+            services.AddScoped<IUnitRepository, UnitRepository>();
 
             // Services
             //
@@ -35,7 +38,10 @@ namespace TemtCash.Main.Api.Infrastructure
             services.AddScoped<IReportService, ReportService>();
             services.AddScoped<ISupplierService, SupplierService>();
             services.AddScoped<ISystemUserService, SystemUserService>();
-            
+            services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IPointOfSaleService, PointOfSaleService>();
+            services.AddScoped<IUnitService, UnitService>();
+
             return services;
         }
     }
