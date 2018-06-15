@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using SpeysCloud.Core.Result;
-using TemtCash.Main.Domain.ViewModel.Services.Company;
 using TemtCash.Main.Domain.ViewModel.Services.Company.Requests;
 using TemtCash.Main.Domain.ViewModel.Services.Company.Response;
 
@@ -17,5 +16,9 @@ namespace TemtCash.Main.Domain.Services
         Task<ServiceResult<bool>> Update(int id, CompanyCreateOrUpdateRequestViewModel viewModel);
 
         Task<ServiceResult<bool>> Delete(int id);
+
+        Task<ServiceResult<MyCompanyInfoResponseViewModel>> GetMyCompanyInfo();
+
+        Task<ServiceResult<bool>> UpdateMyCompanyInfo(MyCompanyInfoUpdateRequestViewModel viewModel);
     }
 }
