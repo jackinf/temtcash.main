@@ -54,7 +54,7 @@ namespace TemtCash.Main.Api
                     options.Authority = new Uri(oauthAuthority);
                     options.Audiences.Add("temtcash-main");
                     options.ClientId = "temtcash-main";
-                    options.ClientSecret = "111112D0-DEF9-4215-A99D-86E6B8DAB342";
+                    options.ClientSecret = "temtcashmain";
                     options.RequireHttpsMetadata = false;
                 });
 
