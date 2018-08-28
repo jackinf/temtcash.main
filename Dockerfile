@@ -1,10 +1,21 @@
-FROM microsoft/aspnetcore-build:2.0.3
-COPY . .
-RUN dotnet restore ./TemtCash.Main.sln
-RUN dotnet publish ./TemtCash.Main.sln -c Release -o ./obj/Docker/publish
-ENV ASPNETCORE_ENVIRONMENT=Development
-ENV ASPNETCORE_CONNECTION_STRING="Server=tcp:stylehopper.database.windows.net,1433;Initial Catalog=TemtCash.Main;Persist Security Info=False;User ID=jackyinf;Password=123456aA!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-ENV ASPNETCORE_OAUTH_AUTHORITY="https://speyscloud-auth.azurewebsites.net/"
+FROM microsoft/dotnet:2.1-aspnetcore-runtime-alpine AS base
+WORKDIR /app
 EXPOSE 80
-EXPOSE 1433
-ENTRYPOINT ["dotnet", "App/TemtCash.Main.Api/bin/Release/netcoreapp2.0/TemtCash.Main.Api.dll"]
+ENV ASPNETCORE_ENVIRONMENT=Development
+ENV TEMTCASH_CONNECTION_STRING=""
+ENV TEMTCASH_AUTHORITY=""
+
+FROM microsoft/dotnet:2.1-sdk-alpine AS build
+WORKDIR /src
+COPY . .
+WORKDIR /src/App/TemtCash.Main.Api
+RUN dotnet restore -nowarn:msb3202,nu1503
+RUN dotnet build --no-restore -c Release -o /app
+
+FROM build AS publish
+RUN dotnet publish --no-restore -c Release -o /app
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app .
+ENTRYPOINT ["dotnet", "TemtCash.Main.Api.dll"]

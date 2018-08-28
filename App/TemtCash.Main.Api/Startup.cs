@@ -35,7 +35,8 @@ namespace TemtCash.Main.Api
             services.AddLogging();
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                var cs = Configuration.GetConnectionString("DefaultConnection");
+                var envCs = Environment.GetEnvironmentVariable("TEMTCASH_CONNECTION_STRING");
+                var cs = !string.IsNullOrWhiteSpace(envCs) ? envCs : Configuration.GetConnectionString("DefaultConnection");
                 options.UseSqlServer(cs);
             });
 
@@ -50,7 +51,8 @@ namespace TemtCash.Main.Api
                 .AddAuthentication(options => options.DefaultScheme = OAuthIntrospectionDefaults.AuthenticationScheme)
                 .AddOAuthIntrospection(options =>
                 {
-                    var oauthAuthority = Configuration.GetValue<string>("OAuthAuthority");
+                    var envOauthAuthority = Environment.GetEnvironmentVariable("TEMTCASH_AUTHORITY");
+                    var oauthAuthority = !string.IsNullOrWhiteSpace(envOauthAuthority) ? envOauthAuthority : Configuration.GetValue<string>("OAuthAuthority");
                     options.Authority = new Uri(oauthAuthority);
                     options.Audiences.Add("temtcash-main");
                     options.ClientId = "temtcash-main";
