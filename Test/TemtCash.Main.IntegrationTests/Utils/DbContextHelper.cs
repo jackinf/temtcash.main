@@ -6,7 +6,7 @@ namespace TemtCash.Main.IntegrationTests.Utils
     public class DbContextHelper
     {
         // TODO: take from appsettings.json
-        public static string TestConnectionString { get; } = "Server=.;Database=SpeysCloud.Main.Test;Trusted_Connection=True;";
+        public static string TestConnectionString { get; } = "Server=.;Database=TemtCash.Main.Test;Trusted_Connection=True;";
 
         public static DbContextOptions<ApplicationDbContext> GetApplicationDbContext()
         {
