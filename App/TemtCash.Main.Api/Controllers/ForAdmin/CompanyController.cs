@@ -40,24 +40,5 @@ namespace TemtCash.Main.Api.Controllers.ForAdmin
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id) 
             => await HandleResultAsync(() => _service.Delete(id));
-
-        //// TODO: experimenting
-        //[HttpGet("fake"), AllowAnonymous]
-        //public async Task<IActionResult> FakeData([FromQuery] CompaniesRequestViewModel viewModel) 
-        //    => await HandleResultAsync(() =>
-        //    {
-        //        var list = new List<CompaniesResponseViewModel>();
-        //        for (int i = 1; i <= 60; i++)
-        //        {
-        //            list.Add(new CompaniesResponseViewModel { Id = i, CompanyName = $"test{i:00}" });
-        //        }
-        //        var result = new PaginatedListResult<CompaniesResponseViewModel>
-        //        {
-        //            ContextObjects = list,
-        //            Pages = 3,
-        //            TotalCount = 60
-        //        };
-        //        return Task.FromResult(ServiceResultFactory.Success(result));
-        //    });
     }
 }

@@ -8,6 +8,7 @@ using Xunit;
 
 namespace TemtCash.Main.IntegrationTests.Features.Company
 {
+    
     public class when_customer_is_created
     {
         private const string Endpoint = CompanyController.ApiEndpoint;
@@ -33,15 +34,7 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
 
                 Assert.False(result.IsSuccessful);
                 var errors = result.TestValidation.Errors;
-                Assert.Equal(7, errors.Count);
-                // TODO
-                //Assert.NotNull(errors.SingleOrDefault(x => x.ErrorMessage == Validator.ErrorMessage.Required.Country));
-                //Assert.NotNull(errors.SingleOrDefault(x => x.ErrorMessage == Validator.ErrorMessage.Required.PostalCode));
-                //Assert.NotNull(errors.SingleOrDefault(x => x.ErrorMessage == Validator.ErrorMessage.Required.City));
-                //Assert.NotNull(errors.SingleOrDefault(x => x.ErrorMessage == Validator.ErrorMessage.Required.AddressLine1));
-                //Assert.NotNull(errors.SingleOrDefault(x => x.ErrorMessage == Validator.ErrorMessage.Required.Company));
-                //Assert.NotNull(errors.SingleOrDefault(x => x.ErrorMessage == Validator.ErrorMessage.Required.ContactName));
-                //Assert.NotNull(errors.SingleOrDefault(x => x.ErrorMessage == Validator.ErrorMessage.Required.ContactPhoneNumber));
+                Assert.Equal(2, errors.Count);
             });
         }
 
@@ -63,19 +56,6 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
             {
                 var model = context.Companies.Find(result.Payload);
                 Assert.NotNull(model);
-                //Assert.Equal(address.Country, viewModel.Country);
-                //Assert.Equal(address.PostalCode, viewModel.PostalCode);
-                //Assert.Equal(address.City, viewModel.City);
-                //Assert.Equal(address.AddressLine1, viewModel.AddressLine1);
-                //Assert.Equal(address.AddressLine2, viewModel.AddressLine2);
-                //Assert.Equal(address.AddressLine3, viewModel.AddressLine3);
-                //Assert.Equal(address.Company, viewModel.Company);
-                //Assert.Equal(address.ContactName, viewModel.ContactName);
-                //Assert.Equal(address.ContactPhoneNumber, viewModel.ContactPhoneNumber);
-                //Assert.Equal(address.ContactEmail, viewModel.ContactEmail);
-                //Assert.Equal(address.KmkRegistrationNumber, viewModel.KmkRegistrationNumber);
-                //Assert.Equal(address.TntClientNumber, viewModel.TntClientNumber);
-                //Assert.Equal(address.ContactReference, viewModel.ContactReference);
             });
         }
     }

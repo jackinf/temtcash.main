@@ -15,6 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{0C6EAF78-1
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemtCash.Main.IntegrationTests", "Test\TemtCash.Main.IntegrationTests\TemtCash.Main.IntegrationTests.csproj", "{433CB769-78E2-4748-8B9A-3B73BE051D32}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Items", "Items", "{11521BF0-C6FD-4E16-9444-6A9E0B60C3AD}"
+ProjectSection(SolutionItems) = preProject
+	README.md = README.md
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

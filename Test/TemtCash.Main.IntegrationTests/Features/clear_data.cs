@@ -1,4 +1,5 @@
-﻿using TemtCash.Main.IntegrationTests.Utils;
+﻿using Microsoft.EntityFrameworkCore;
+using TemtCash.Main.IntegrationTests.Utils;
 using Xunit;
 
 namespace TemtCash.Main.IntegrationTests.Features
@@ -14,6 +15,7 @@ namespace TemtCash.Main.IntegrationTests.Features
         {
             ApiServerFixture.Current.DoDatabaseOperation(context =>
             {
+                context.Database.Migrate();
                 context.Companies.RemoveRange(context.Companies);
                 context.CompanyLicences.RemoveRange(context.CompanyLicences);
                 context.Customers.RemoveRange(context.Customers);

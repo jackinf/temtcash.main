@@ -43,15 +43,9 @@ namespace TemtCash.Main.IntegrationTests.Features.Company
             Assert.False(result.Payload);
             Assert.False(result.IsSuccessful);
             var errors = result.TestValidation.Errors;
-            // TODO
-            //Assert.Equal(7, errors.Count);
-            //Assert.NotNull(errors.SingleOrDefault(x => x.ErrorMessage == Validator.ErrorMessage.Required.Country));
-            //Assert.NotNull(errors.SingleOrDefault(x => x.ErrorMessage == Validator.ErrorMessage.Required.PostalCode));
-            //Assert.NotNull(errors.SingleOrDefault(x => x.ErrorMessage == Validator.ErrorMessage.Required.City));
-            //Assert.NotNull(errors.SingleOrDefault(x => x.ErrorMessage == Validator.ErrorMessage.Required.AddressLine1));
-            //Assert.NotNull(errors.SingleOrDefault(x => x.ErrorMessage == Validator.ErrorMessage.Required.Company));
-            //Assert.NotNull(errors.SingleOrDefault(x => x.ErrorMessage == Validator.ErrorMessage.Required.ContactName));
-            //Assert.NotNull(errors.SingleOrDefault(x => x.ErrorMessage == Validator.ErrorMessage.Required.ContactPhoneNumber));
+            Assert.Equal(2, errors.Count);
+            Assert.NotNull(errors.SingleOrDefault(x => x.ErrorMessage == "Name is required"));
+            Assert.NotNull(errors.SingleOrDefault(x => x.ErrorMessage == "Status is required"));
         }
 
         [Fact]
